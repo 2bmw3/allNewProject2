@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="org.won.dao.MemberMapper">
+
+	<select id="memberRead" resultType="productsVO">
+		select tbl_pphotos.pno,
+		pname,pgender,adminid,pkind,ptitlephoto,pcontent,price,pphoto,sellcnt,pregdate
+		from tbl_products,tbl_pphotos
+		where tbl_pphotos.pno = tbl_products.pno
+		and tbl_pphotos.pno = #{pno}
+	</select>
+
+	<select id="create">
+		insert into tbl_member
+		(userid,userpw,uname,uaddress,uemail,uphonenumber,ubirth,ugender)
+		value(#{userid},#{userpw},#{uname},#{uaddress},#{uemail},#{uphonenumber},#{ubirth},#{ugender})
+
+	</select>
+	
+	<select id="indexList" resultType="adminVO">
+		select adminid, thema, titleimg, shopname from tbl_admin where titleimg is not null
+	</select>
+
+	<insert id="questionWrite" parameterType="QuestionVO">
+		insert into tbl_question (pno, qcontent, qwriter, qregdate, qpw)
+		values(#{pno}, #{qcontent}, #{qwriter}, now(), #{qpw})
+	</insert>
+	
+	<select id="questionPwCheck" resultType="String">
+		select qpw from tbl_question where qno = #{qno}
+	</select>
+	
+	<select id="answerList" resultType="String">
+		select acontent from tbl_answer where qno = #{qno}
+	</select>
+	
+	<select id="login" resultType="MemberVO" parameterType="MemberVO">
+		select * from bit88.tbl_member where userid = #{userid} and userpw = #{userpw}
+	</select>
+</mapper>

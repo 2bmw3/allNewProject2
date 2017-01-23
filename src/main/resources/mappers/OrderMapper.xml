@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="org.won.dao.OrderMapper">
+
+	<select id="adminOrderView" resultType="OrderVO">
+		select
+		ono,pname,pisize,picolor,uname,ocnt,price,ostatus,ptitlephoto,pino,odno,shopname,oaddress
+		from
+		(
+		select ono,pino,userid,
+		ocnt,ostatus,pname,ptitlephoto,pisize,picolor,pistock,price,odno,shopname,oaddress
+		from
+		(
+		select
+		a.ono,a.pino,shopname,userid,ocnt,ostatus,pno,pisize,picolor,pistock,odno,oaddress
+		from
+		(
+		select distinct tbl_orderdetail.ono, tbl_orderdetail.shopname,
+		tbl_orderdetail.ostatus,tbl_orderdetail.pino,
+		tbl_orderdetail.ocnt,
+		tbl_order.userid,tbl_orderdetail.odno,tbl_order.oaddress from tbl_orderdetail ,tbl_order
+		where tbl_orderdetail.ono = tbl_order.ono and ostatus =0 or ostatus
+		=1)a,tbl_pinfo
+		where a.pino = tbl_pinfo.pino )a ,tbl_products
+		where
+		a.pno =tbl_products.pno and adminid = #{adminid}) a,tbl_member
+		where
+		a.userid = tbl_member.userid order by ono desc
+	</select>
+
+	<update id="adminOrderUpdate">
+		update tbl_orderdetail
+		set ostatus = 2
+		where odno =
+		#{odno}
+
+	</update>
+		<update id="memberOrderUpdate">
+		update tbl_orderdetail
+		set ostatus = 3
+		where odno =
+		#{odno}
+
+	</update>
+
+	<select id="adminOrderList" resultType="OrderVO">
+	select
+		ono,pname,pisize,picolor,uname,ocnt,price,ostatus,ptitlephoto,pino,odno,shopname,oaddress
+		from
+		(
+		select ono,pino,userid,
+		ocnt,ostatus,pname,ptitlephoto,pisize,picolor,pistock,price,odno,shopname,oaddress
+		from
+		(
+		select
+		a.ono,a.pino,shopname,userid,ocnt,ostatus,pno,pisize,picolor,pistock,odno,oaddress
+		from
+		(
+		select distinct tbl_orderdetail.ono, tbl_orderdetail.shopname,
+		tbl_orderdetail.ostatus,tbl_orderdetail.pino,
+		tbl_orderdetail.ocnt,
+		tbl_order.userid,tbl_orderdetail.odno,tbl_order.oaddress from tbl_orderdetail ,tbl_order
+		where tbl_orderdetail.ono = tbl_order.ono )a,tbl_pinfo
+		where a.pino = tbl_pinfo.pino )a ,tbl_products
+		where
+		a.pno =tbl_products.pno and adminid = #{adminid}) a,tbl_member
+		where
+		a.userid = tbl_member.userid order by ono desc
+		LIMIT 0 , 5
+
+	</select>
+
+	<select id="adminOrderMoreList" resultType="OrderVO">
+			select
+		ono,pname,pisize,picolor,uname,ocnt,price,ostatus,ptitlephoto,pino,odno,shopname,oaddress
+		from
+		(
+		select ono,pino,userid,
+		ocnt,ostatus,pname,ptitlephoto,pisize,picolor,pistock,price,odno,shopname,oaddress
+		from
+		(
+		select
+		a.ono,a.pino,shopname,userid,ocnt,ostatus,pno,pisize,picolor,pistock,odno,oaddress
+		from
+		(
+		select distinct tbl_orderdetail.ono, tbl_orderdetail.shopname,
+		tbl_orderdetail.ostatus,tbl_orderdetail.pino,
+		tbl_orderdetail.ocnt,
+		tbl_order.userid,tbl_orderdetail.odno,tbl_order.oaddress from tbl_orderdetail ,tbl_order
+		where tbl_orderdetail.ono = tbl_order.ono )a,tbl_pinfo
+		where a.pino = tbl_pinfo.pino )a ,tbl_products
+		where
+		a.pno =tbl_products.pno and adminid = #{adminid}) a,tbl_member
+		where
+		a.userid = tbl_member.userid order by ono desc
+		LIMIT #{page} , 5
+	</select>
+
+	<select id="cartList" resultType="CartVO">
+      select adminid,tbl_cart.shopname,pno,ptitlephoto,price,pname,tbl_cart.pino, cno,ccnt,pisize,picolor from
+      (select adminid,shopname,tbl_pinfo.pno,ptitlephoto,price,pname,pino,pisize,picolor from
+      (select tbl_admin.adminid,shopname,pno,ptitlephoto,price,pname from tbl_admin,tbl_products 
+		where tbl_admin.adminid = tbl_products.adminid)
+        as product,tbl_pinfo where tbl_pinfo.pno = product.pno)
+        as pifo,tbl_cart where pifo.pino = tbl_cart.pino  and userid = #{userid} and pifo.shopname = #{shopname};
+	</select>
+
+	<select id="cartDelete">
+			delete from tbl_cart where cno = #{cno}
+	</select>
+
+	<insert id="cartAdd" parameterType="CartVO">
+	insert into bit88.tbl_cart (pino, shopname, ccnt,userid) 
+	value ( (select pino from bit88.tbl_pinfo where pno=#{pno} and picolor = #{picolor} and pisize = #{pisize}),
+		    (select shopname from bit88.tbl_admin where adminid = #{adminid}),
+		    #{ccnt},
+            #{userid})
+	</insert>
+	
+	<insert id="memberOrderWrite" parameterType="String">
+		insert into tbl_order (userid,ophonenumber,oaddress) value (#{userid},(select uphonenumber from tbl_member where userid = #{userid})
+      ,(select uaddress from tbl_member where userid = #{userid}))
+	</insert>
+	<insert id="memberOrderWriteDetail" parameterType="OrderVO">
+		insert into tbl_orderdetail(ono,pino,ocnt,shopname) value ((select max(ono) from
+		tbl_order order by ono desc),(select pino from bit88.tbl_pinfo where pno=#{pno} and picolor = #{picolor} and pisize = #{pisize}),
+		#{ocnt}, (select shopname from bit88.tbl_admin where adminid = #{adminid}))
+	</insert>
+	
+	<select id="memberOrderList" resultType="OrderVO">
+select
+		ono,pname,pisize,picolor,uname,ocnt,price,ostatus,ptitlephoto,pino,odno,shopname
+		from
+		(
+		select ono,pino,userid,
+		ocnt,ostatus,pname,ptitlephoto,pisize,picolor,pistock,price,odno,shopname,oaddress
+		from
+		(
+		select
+		a.ono,a.pino,shopname,userid,ocnt,ostatus,pno,pisize,picolor,pistock,odno,oaddress
+		from
+		(
+		select distinct tbl_orderdetail.ono, tbl_orderdetail.shopname,
+		tbl_orderdetail.ostatus,tbl_orderdetail.pino,
+		tbl_orderdetail.ocnt,
+		tbl_order.userid,tbl_orderdetail.odno,tbl_order.oaddress from tbl_orderdetail ,tbl_order
+		where tbl_orderdetail.ono = tbl_order.ono and userid = #{userid} and shopname = #{shopname} and ostatus !=3 order by odno desc)a,tbl_pinfo
+		where a.pino = tbl_pinfo.pino )a ,tbl_products
+		where
+		a.pno =tbl_products.pno) a,tbl_member
+		where
+		a.userid = tbl_member.userid order by ono desc;
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</mapper>

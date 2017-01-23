@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.won.dao.ProductsMapper">
+
+
+	<!--admin search -->
+	<sql id="search">
+		<if test="sType eq 's'.toString()">
+			pisize like #{keyword}
+		</if>
+		<if test="sType eq 'c'.toString()">
+			picolor like #{keyword}
+		</if>
+		<if test="sType eq 'p'.toString()">
+			pname like
+			CONCAT('%',#{keyword},'%')
+		</if>
+	</sql>
+
+	<!-- insert -->
+	<insert id="productsWrite" parameterType="ProductsVO">
+		insert into
+		tbl_products(pname, pgender,adminid,pkind,ptitlephoto, pcontent,
+		price)
+		values(#{pname}, #{pgender}, #{adminid}, #{pkind},
+		#{ptitlephoto}, #{pcontent} ,
+		#{price} )
+	</insert>
+
+	<insert id="productsDetailWrite" parameterType="PinfoVO">
+		insert into
+		tbl_pinfo(pno, picolor, pisize, pistock)
+		values((select max(pno) from
+		tbl_products order by pno desc), #{picolor},
+		#{pisize},#{pistock})
+	</insert>
+
+
+	<insert id="productsPhotoWrite" parameterType="String">
+		insert into
+		tbl_pphotos(pno, pphoto)
+		values(last_insert_id(), #{pphoto})
+	</insert>
+
+	<insert id="productsDetailWritePno" parameterType="PinfoVO">
+		insert into
+		tbl_pinfo(pno, picolor, pisize, pistock)
+		values(#{pno},
+		#{picolor},#{pisize},#{pistock})
+	</insert>
+	<insert id="productsPhotoWritePno" parameterType="PphotosVO">
+		insert into
+		tbl_pphotos(pno, pphoto)
+		values(#{pno}, #{pphotostr})
+	</insert>
+
+
+	<select id="list" resultType="ProductsVO">
+		select * from tbl_products where
+		adminid = #{adminid} order by
+		pno desc limit #{page},9
+	</select>
+
+	<select id='pkindList' resultType='productsVO'>
+		select * from tbl_products
+		where adminid = #{adminid} and pkind = #{pkind}
+	</select>
+
+	<select id="total" resultType="java.lang.Integer">
+		select count(*) from tbl_products
+		where adminid=#{adminid}
+	</select>
+
+	<select id="pkindTotal" resultType="java.lang.Integer">
+		select count(*) from
+		tbl_products where adminid=#{adminid} and pkind =
+		#{pkind}
+	</select>
+
+
+
+	<select id="adminRead" resultType="productsVO">
+		select tbl_pphotos.pno,
+		pname,pgender,adminid,pkind,ptitlephoto,pcontent,price,pphoto,sellcnt,pregdate
+		from tbl_products,tbl_pphotos
+		where tbl_pphotos.pno = tbl_products.pno
+		and tbl_pphotos.pno = #{pno}
+	</select>
+
+	<select id="review" resultType="ReviewVO">
+		select date_format(rregdate,'%Y/%m/%d%H:%i:%s')rregdate,rno,rgrade,userid,rcontent,rphoto from tbl_review where
+		pno = #{pno} order by rregdate desc
+	</select>
+
+	<insert id="rCreate" parameterType="ReviewVO">
+		insert into tbl_review(pno, userid, rcontent, rphoto, rgrade)
+		value(#{pno}, #{userid}, #{rcontent}, #{rphoto}, #{rgrade})
+	</insert>
+
+	<delete id="productsDelete">
+		delete from tbl_products where pno =
+		#{pno}
+	</delete>
+	<delete id="pinfoDelete">
+		delete from tbl_pinfo where pno =
+		#{pno}
+	</delete>
+	<delete id="pphotosDelete">
+		delete from tbl_pphotos where pno =
+		#{pno}
+	</delete>
+
+	<select id="question" resultType="QuestionVO">
+		select qwriter, qno, pno, 
+		date_format(qregdate,'%Y/%m/%d/%H:%i:%s')qregdate, qcontent, qstatus 
+		from tbl_question where pno = #{pno} order by qno desc
+	</select>
+
+	<insert id="answer" parameterType="AnswerVO">
+		insert into
+		tbl_answer(qno,acontent, awriter)
+		values(#{qno},#{acontent},#{awriter})
+	</insert>
+
+	<update id="qstatus">
+		update tbl_question
+		SET qstatus='Y'
+		WHERE qno=#{ano}
+	</update>
+
+	<select id="answerRead" resultType="AnswerVO">
+		select
+		ano,qna.qno,acontent,awriter,aregdate from tbl_answer,(select qno
+		from
+		tbl_question where pno=#{pno}) qna
+		where tbl_answer.qno=qna.qno
+	</select>
+
+	<select id="info" resultType="PinfoVO">
+		select * from tbl_pinfo where pno =
+		#{pno}
+	</select>
+
+	<select id="infoColor" resultType="PinfoVO">
+		select DISTINCT(picolor) from
+		bit88.tbl_pinfo where pno=#{pno}
+	</select>
+
+	<select id="infoSize" resultType="PinfoVO">
+		select DISTINCT(pisize) from
+		bit88.tbl_pinfo where pno=#{pno} and picolor =
+		#{picolor}
+	</select>
+
+
+	<select id="adminListSearch" resultType="productsVO">
+		select distinct tbl_products.pno,tbl_products.ptitlephoto from
+		tbl_products,tbl_pinfo where tbl_products.pno=tbl_pinfo.pno and
+		adminid = #{adminid} and
+
+		<include refid="search" />
+
+		order by pino desc limit #{page},9
+	</select>
+
+	<select id="searchTotal" resultType="java.lang.Integer">
+		select count(*) from tbl_pinfo,tbl_products where
+		tbl_products.pno=tbl_pinfo.pno and adminid = #{adminid} and
+
+		<include refid="search" />
+
+		order by pino desc
+	</select>
+
+	<select id="pphotosRead" resultType="PphotosVO">
+		select pno, pphoto pphotostr
+		from tbl_pphotos where pno = #{pno}
+	</select>
+
+
+	<select id="lastPnoRead" resultType="ProductsVO">
+		select * from tbl_products
+		order by pno desc
+	</select>
+
+
+	<select id="updateProductsRead" resultType="ProductsVO">
+		select * from
+		tbl_products,tbl_pphotos where tbl_products.pno = tbl_pphotos.pno and
+		tbl_products.pno=#{pno}
+	</select>
+
+	<select id="updateInfoRead" resultType="PinfoVO">
+		select * from tbl_pinfo
+		where pno = #{pno}
+	</select>
+
+	<update id="update" parameterType="ProductsVO">
+		UPDATE tbl_products
+		SET pname =
+		#{pname}, pgender = #{pgender}, pkind = #{pkind}, price =
+		#{price},
+		pcontent=#{pcontent}, ptitlephoto=#{ptitlephoto}
+		WHERE pno=#{pno}
+	</update>
+
+	<select id="themaGet" resultType="AdminVO">
+		select thema,(select shoplogo
+		from bit88.tbl_products where pno=#{pno})
+		shoplogo from bit88.tbl_admin
+		where adminid = (select adminid from bit88.tbl_products where
+		pno=#{pno})
+	</select>
+
+	<select id="hitItem" parameterType="AdminVO" resultType="ProductsVO">
+		select *
+		from (select * from tbl_products where adminid=#{adminid} limit 0,
+		#{limitnum}) t order by sellcnt desc
+	</select>
+
+	<select id="newItem" parameterType="AdminVO" resultType="ProductsVO">
+		select *
+		from (select * from tbl_products where adminid=#{adminid} limit 0,
+		#{limitnum}) t order by pregdate desc
+	</select>
+
+	<select id="mGenderList" resultType="ProductsVO" parameterType="String">
+		select pno, pname, pgender, pkind, pregdate, ptitlephoto, price,
+		shopname,
+		thema from(
+		select * from tbl_products) products, tbl_admin
+		where products.adminid =
+		tbl_admin.adminid and pgender = #{pgender}
+		order by pregdate desc
+	</select>
+
+	<select id="mPkindList" resultType="ProductsVO" parameterType="String">
+		select pno, pname, pgender, pkind, pregdate, ptitlephoto, price,
+		shopname,
+		thema from(
+		select * from tbl_products) products, tbl_admin
+		where products.adminid =
+		tbl_admin.adminid and pkind = #{pkind} order
+		by pregdate desc
+	</select>
+
+	<select id="mTotalList" resultType="ProductsVO">
+		select pno, pname, pgender,
+		pkind, pregdate, ptitlephoto, price, shopname, thema
+		from(
+		select * from
+		tbl_products) products, tbl_admin where
+		products.adminid =
+		tbl_admin.adminid order by pregdate desc
+	</select>
+
+</mapper>

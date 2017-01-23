@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="org.won.dao.EditorMapper">
+
+   <insert id="ephotoWrite">
+   insert into tbl_ephotos ( ephoto ) value ( #{fileName} )
+   </insert>
+   
+   <update id="ephotoUpdate" parameterType="EphotosVO">
+   update tbl_ephotos set pno = #{pno} where ephoto = #{ephotostr}
+   </update>
+   
+   <select id="ephotoRead" resultType="EphotosVO">
+   select pno, ephoto ephotostr from tbl_ephotos where pno = 0
+   </select>
+   
+   <delete id="ephotoDelete">
+   delete from tbl_ephotos where pno = 0 
+   </delete>
+   
+   <delete id="ephotoPnoDelete">
+   delete from tbl_ephotos where pno = #{pno}
+   </delete>
+   
+
+</mapper>

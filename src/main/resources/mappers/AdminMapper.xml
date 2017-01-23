@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="org.won.dao.AdminMapper">
+
+	<insert id="create">
+		insert into tbl_admin (adminid, adminpw, aname,
+		aaddress, aemail, aphonenumber, shopname, businessnum,
+		shoplogo, thema, titleimg)
+		values(#{adminid}, #{adminpw}, #{aname}, #{aaddress}, #{aemail},
+		#{aphonenumber}, #{shopname}, #{businessnum}, #{shoplogo},#{thema}, #{titleimg} )
+	</insert>
+
+	<select id="shopTotal" parameterType="String" resultType="AdminVO">
+		select
+		* from tbl_admin where adminid = #{adminid}
+	</select>
+	<select id="infoEdit" parameterType="ProductsVO" resultType="PinfoVO">
+		select tbl_pinfo.pno pno, count(distinct pisize) pisize,
+		count(distinct picolor) picolor
+		from tbl_pinfo, tbl_products
+		where tbl_pinfo.pno = #{pno} and tbl_products.adminid = #{adminid}
+	</select>
+
+	<select id="categorySearch" resultType="ProductsVO"
+		parameterType="ProductsVO">
+		select * from tbl_products where pkind = #{pkind} and
+		adminid = #{adminid}
+		order by pno desc limit #{page},9
+	</select>
+
+	<select id="categorySearchTotal" resultType="java.lang.Integer"
+		parameterType="ProductsVO">
+		select count(*) from tbl_products where pkind = #{pkind}
+		and adminid = #{adminid}
+		order by pno desc
+	</select>
+	<select id="idCheck" resultType="String">
+		select adminid from tbl_admin
+		where adminid = #{adminid}
+	</select>
+
+	<select id="latter" resultType="QuestionVO">
+		select tbl_question.pno, pname,
+		ptitlephoto from tbl_question, tbl_products
+		where tbl_question.pno =
+		tbl_products.pno and qstatus = 'N' and
+		adminid=#{adminid}
+		order by qno
+		desc
+	</select>
+	
+	<select id="getAdminId" resultType="String">
+		select adminid from tbl_admin where shopname = #{shopname}
+	</select>
+
+</mapper>
