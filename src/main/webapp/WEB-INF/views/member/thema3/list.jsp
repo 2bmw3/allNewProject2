@@ -25,32 +25,32 @@
 				<div class='row' style="display: none" id="colorbox">
 					<br>
 					<div class="col-sm-16">
-						<image src='/resources/themes/thema3/images/color_info/red.jpg' class='colorInfo' id='red' />
-						<image src='/resources/themes/thema3/images/color_info/orange.jpg' class='colorInfo'
+						<image src='/resources/admin/images/color_info/red.jpg' class='colorInfo' id='red' />
+						<image src='/resources/admin/images/color_info/orange.jpg' class='colorInfo'
 							id='orange' />
-						<image src='/resources/themes/thema3/images/color_info/yellow.jpg' class='colorInfo'
+						<image src='/resources/admin/images/color_info/yellow.jpg' class='colorInfo'
 							id='yellow' />
-						<image src='/resources/themes/thema3/images/color_info/green.jpg' class='colorInfo'
+						<image src='/resources/admin/images/color_info/green.jpg' class='colorInfo'
 							id='green' />
-						<image src='/resources/themes/thema3/images/color_info/blue.jpg' class='colorInfo'
+						<image src='/resources/admin/images/color_info/blue.jpg' class='colorInfo'
 							id='blue' />
-						<image src='/resources/themes/thema3/images/color_info/navy.jpg' class='colorInfo'
+						<image src='/resources/admin/images/color_info/navy.jpg' class='colorInfo'
 							id='navy' />
-						<image src='/resources/themes/thema3/images/color_info/purple.jpg' class='colorInfo'
+						<image src='/resources/admin/images/color_info/purple.jpg' class='colorInfo'
 							id='purple' />
-						<image src='/resources/themes/thema3/images/color_info/pink.jpg' class='colorInfo'
+						<image src='/resources/admin/images/color_info/pink.jpg' class='colorInfo'
 							id='pink' />
-						<image src='/resources/themes/thema3/images/color_info/beige.jpg' class='colorInfo'
+						<image src='/resources/admin/images/color_info/beige.jpg' class='colorInfo'
 							id='beige' />
-						<image src='/resources/themes/thema3/images/color_info/brown.jpg' class='colorInfo'
+						<image src='/resources/admin/images/color_info/brown.jpg' class='colorInfo'
 							id='brown' />
-						<image src='/resources/themes/thema3/images/color_info/gray.jpg' class='colorInfo'
+						<image src='/resources/admin/images/color_info/gray.jpg' class='colorInfo'
 							id='gray' />
-						<image src='/resources/themes/thema3/images/color_info/white.jpg' class='colorInfo'
+						<image src='/resources/admin/images/color_info/white.jpg' class='colorInfo'
 							id='white' />
-						<image src='/resources/themes/thema3/images/color_info/black.jpg' class='colorInfo'
+						<image src='/resources/admin/images/color_info/black.jpg' class='colorInfo'
 							id='black' />
-						<image src='/resources/themes/thema3/images/color_info/etc.jpg' class='colorInfo' id='etc' />
+						<image src='/resources/admin/images/color_info/etc.jpg' class='colorInfo' id='etc' />
 					</div>
 				</div>
 			</div>
