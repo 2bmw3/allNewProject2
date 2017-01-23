@@ -141,11 +141,13 @@ ul.uli {
 				   <c:forEach items="${qna}" var="qvo">		    
 				    <div class="panel panel-default">
 				      <div class="panel-heading">
-				        <h4 class="panel-title">
-				          <a data-toggle="collapse" data-parent="#accordion" href="#collapse${qvo.qno}">
-				          	<i class="fa fa-lock" >  비공개 글입니다</i></a>
-				        </h4>
-				      </div>
+										<a data-toggle="collapse" data-parent="#accordion"
+											href="#collapse${qvo.qno}">
+											<h4 class="panel-title">
+												<i class="fa fa-lock"> 비공개 글입니다</i>
+											</h4>
+										</a>
+									</div>
 				      <div id="collapse${qvo.qno}" class="panel-collapse collapse">
 				        <div class="panel-body">
 				        	<input type="text" id='questionPwcheck' maxlength="4" 
