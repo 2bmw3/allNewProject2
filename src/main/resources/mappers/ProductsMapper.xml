@@ -211,7 +211,7 @@
 	<select id="themaGet" resultType="AdminVO">
 		select thema,(select shoplogo
 		from bit88.tbl_products where pno=#{pno})
-		shoplogo from bit88.tbl_admin
+		shoplogo, shopname from bit88.tbl_admin
 		where adminid = (select adminid from bit88.tbl_products where
 		pno=#{pno})
 	</select>
