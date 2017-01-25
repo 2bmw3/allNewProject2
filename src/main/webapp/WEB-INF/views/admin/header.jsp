@@ -61,7 +61,7 @@
                 </a>
                 <!-- /.dropdown-messages -->
             </li>
-            <!-- /.dropdown -->
+           <!-- QnA alert  -->
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
                 	<i onclick="myFunction()" id="dropbtn" class="fa fa-bell fa-fw"></i> 
@@ -71,6 +71,18 @@
 
                 </ul>
             </li>
+             <!-- /QnA alert  -->
+             <!-- cart alert  -->
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
+                	<i class="fa fa-truck"></i> 
+                	<span id="count" class="label label-success">0</span>
+                </a>
+                <ul style="overflow:scroll; width:350px; height:500px;" class="dropdown-menu dropdown-messages" >
+
+                </ul>
+            </li>
+            <!-- /cart alert  -->
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                     <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
