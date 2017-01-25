@@ -56,7 +56,7 @@
 
         <ul class="nav navbar-top-links navbar-right">
             <li>
-                <a class="dropdown-toggle member" href="">
+                <a class="dropdown-toggle member" href="#">
                     <i class="fa fa-window-restore"></i>
                 </a>
                 <!-- /.dropdown-messages -->
@@ -67,7 +67,7 @@
                 	<i onclick="myFunction()" id="dropbtn" class="fa fa-bell fa-fw"></i> 
                 	<span id="count" class="label label-success">0</span>
                 </a>
-                <ul style="overflow:scroll; width:350px; height:500px;" class="dropdown-menu dropdown-messages" id="myDropdown">
+                <ul style="overflow:scroll; width:350px; height:500px;" class="dropdown-menu dropdown-messages" id="qnaDropdown">
 
                 </ul>
             </li>

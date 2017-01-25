@@ -242,6 +242,13 @@ public class AdminController {
 		return service.latter(adminid);
 	}
 	
+	@PostMapping("/qnaCount")
+	public @ResponseBody int qnaCount(String adminid) throws Exception {
+		int qnaCount = service.latter(adminid).size();
+		return qnaCount;
+	}
+	
+	
 	@PostMapping("/webcamUpload")
 	public @ResponseBody String slip(String base64) throws Exception {
 
