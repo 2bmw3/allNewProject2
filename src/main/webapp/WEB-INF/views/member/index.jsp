@@ -45,14 +45,14 @@
 			class="demos__item demos__item--current" href="member/index"></a> </nav> </header>
 		<div id="myModal" class="modal" style="margin-top: -8%;">
 			<!-- Modal content -->
-			<div class="modal-content" style="width: 40%; height: 98%;">
+			<div class="modal-content" style="width: 40%; height: 75%;">
 				<div class="modal-header">
 					<span class="close" id="webCamClose">&times;</span>
 					<h2>Please put the card on the camera.</h2>
 				</div>
 
 				<div class="modal-body">
-					<video id="video" width="100%" height="80%" autoplay></video>
+					<video id="video" width="100%" height="100%" autoplay></video>
 					<canvas id="canvas"></canvas>
 					<br />
 					<div id="ViewTimer"></div>

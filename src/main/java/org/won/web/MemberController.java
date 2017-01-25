@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.swing.plaf.synth.SynthSeparatorUI;
 
 //s
 import org.slf4j.Logger;
@@ -68,8 +69,16 @@ public class MemberController {
 
 	@GetMapping("/categoryList")
 	public void topList(Model model, String pkind) throws Exception {
-
 		model.addAttribute("list", pservice.mPkindList(pkind));
+	}
+	
+	//안드로이드 전용
+	@GetMapping("/view")
+	public String view(int pno) throws Exception{
+		AdminVO vo = pservice.themaGet(pno);
+		System.out.println("++++++++");
+		String url = "/member/thema" + vo.getThema() + "/view?pno=" + pno + "&shopname=" + vo.getShopname();
+		return "redirect:"+url;
 	}
 
 	// thema1 start
@@ -401,7 +410,6 @@ public class MemberController {
 	}
 	@PostMapping("/orderWrite")
 	public String orderWrite(OrderVO vo,String userid, HttpServletRequest request) throws Exception {
-		logger.info("ssssssssssssssssssssssssssssssssss"+vo);
 		AdminVO themaNum = pservice.themaGet(vo.getPno());
 		vo.setUserid(cookieUtil.cookieUtil(request,"userid"));
 		if(vo.getList() == null){
