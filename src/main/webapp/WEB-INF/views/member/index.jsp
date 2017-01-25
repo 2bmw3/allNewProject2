@@ -83,12 +83,9 @@
 			</a> <figcaption>All List</figcaption> </figure>
 		
 		<section class="page page--static">
-		<div class="page__title" style="margin-top: -20%;">
-			<h2 class="page__title-main">Polaroid Stack to Grid Intro
-				Animation</h2>
+		<div class="page__title" >
 			<p class="page__title-sub">
-				Recreating the effect seen on the <a
-					href="http://www.takeitapp.co/en">takeit</a> website
+				There are no ugly women in the world, just lazy on es
 			</p>
 		</div>
 		<ul class="grid">
