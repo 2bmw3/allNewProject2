@@ -68,25 +68,33 @@
 		</div>
 		</section>
 		<div class="title-wrap">
-			<h3 class="title title--main">
-				OH<em>!</em>SNAP
-			</h3>
-			<p class="title title--sub">Smart Auto-Filtering for your shots.</p>
+			<h4 class="title title--main">
+				Elegance
+			</h4>
+			<p class="title title--sub">Make by WON-PIECE!	</p>
 		</div>
-		
-			<figure class="pic10 camera" style="margin-left:3.5%;">
-			<a href='#' id="myBtn" class='btn-example'> <i
-				class="fa fa-camera-retro" style="font-size: 150px;"></i>
-			</a> <figcaption>Search Camera</figcaption> 
-			<a href='/member/list'> <i
-				class="fa fa-list" style="font-size: 150px;"></i>
-			</a> <figcaption>All List</figcaption> </figure>
-		
+
+		<figure class="pic10 camera" style="margin-left:3.5%;margin-right:3.5%">
+		<div class="row">
+			<div class="col-md-1" style="float: left;">
+				<a href='#' id="myBtn" class='btn-example'> <i
+					class="fa fa-camera-retro" style="font-size: 150px;"></i>
+				</a>
+				<figcaption>Search Camera</figcaption>
+			</div>
+			<div class="col-md-1" style="float: right;">
+				<a href='/member/list'> <i class="fa fa-list"
+					style="font-size: 150px;"></i>
+				</a>
+				<figcaption>All List</figcaption>
+			</div>
+		</div>
+		</figure>
+
 		<section class="page page--static">
-		<div class="page__title" >
-			<p class="page__title-sub">
-				There are no ugly women in the world, just lazy on es
-			</p>
+		<div class="page__title">
+			<p class="page__title-sub">In order to be irreplaceacle, one must
+				always be different.</p>
 		</div>
 		<ul class="grid">
 			<c:forEach items="${indexList}" var="vo" varStatus="status">
@@ -112,7 +120,6 @@
 			<!-- Related demos -->
 		</div>
 		<!-- /view -->
-		
 </body>
 <script src="/resources/member/js/classie.js"></script>
 <script src="/resources/member/js/dynamics.min.js"></script>
