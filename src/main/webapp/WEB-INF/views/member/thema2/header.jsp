@@ -27,7 +27,6 @@ function hideURLbar() {
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script type="text/javascript" src="/resources/themes/thema2/js/move-top.js"></script>
 <script type="text/javascript" src="/resources/themes/thema2/js/easing.js"></script>
->
 <!-- start menu -->
 <script src="/resources/themes/thema2/js/simpleCart.min.js"></script>
 <link href="/resources/themes/thema2/css/memenu.css" rel="stylesheet" type="text/css" media="all"/>
