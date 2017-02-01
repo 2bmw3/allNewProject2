@@ -105,7 +105,8 @@
 				<c:if test="${'[null]' ne list}">
 					<c:forEach items="${list}" var="vo">
 						<figure class="white" style='min-height: 430px; max-height: 430px;'> 
-						<a href="thema${vo.thema}/view?shopname=${vo.shopname}&pno=${vo.pno}&jspName=/${actionName}&sType=${sType}&keyword=${keyword}" onclick="window.open(this.href); self.location.href='categoryList?pkind=${param.pkind}';"> 
+						<a class='targetImg' href="#"> 
+							<input type="hidden" value="thema${vo.thema}/view?shopname=${vo.shopname}&pno=${vo.pno}&jspName=/${actionName}&sType=${sType}&keyword=${keyword}">
 						<img style='max-width: 300px;min-height:300px;max-height: 300px;'
 							src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e" alt="" />
 							<dl>
@@ -129,87 +130,11 @@
 		</div>
 		
 
-		<div id="wrapper-oldnew">
-			<div class="oldnew">
-				<div class="wrapper-oldnew-prev">
-					<div id="oldnew-prev"></div>
-				</div>
-				<div class="wrapper-oldnew-next">
-					<div id="oldnew-next"></div>
-				</div>
-			</div>
-		</div>
-
-		<div id="wrapper-thank">
-			<div class="thank">
-				<div class="thank-text">
-					pl<span style="letter-spacing: -5px;">a</span>tz
-				</div>
-			</div>
-		</div>
-
-		<div id="main-container-footer">
-			<div class="container-footer">
-
-				<div id="row-1f">
-					<div class="text-row-1f">
-						<span
-							style="font-weight: 600; font-size: 15px; color: #666; line-height: 250%; text-transform: uppercase; letter-spacing: 1.5px;">What
-							is Platz</span><br>Platz is a blog showcasing hand-picked free
-						themes, design stuff, free fonts and other resources for web
-						designers.
-					</div>
-				</div>
-
-				<div id="row-2f">
-					<div class="text-row-2f">
-						<span
-							style="font-weight: 600; font-size: 15px; color: #666; line-height: 250%; text-transform: uppercase; letter-spacing: 1.5px;">How
-							does it work</span><br>Platz offers you all the latest freebies
-						found all over the fourth corners without to pay.
-					</div>
-				</div>
-
-				<div id="row-3f">
-					<div class="text-row-3f">
-						<span
-							style="font-weight: 600; font-size: 15px; color: #666; line-height: 250%; text-transform: uppercase; letter-spacing: 1.5px;">Get
-							in touch!</span><br>Subscribe our RSS or follow us on Facebook,
-						Google+, Pinterest or Dribbble to keep updated.
-					</div>
-				</div>
-
-				<div id="row-4f">
-					<div class="text-row-4f">
-						<span
-							style="font-weight: 600; font-size: 15px; color: #666; line-height: 250%; text-transform: uppercase; letter-spacing: 1.5px;">Newsletter</span><br>You
-						will be informed monthly about the latest content avalaible.
-					</div>
-
-					<div id="main_tip_newsletter">
-						<form>
-							<input type="text" name="newsletter" id="tip_newsletter_input"
-								list="newsletter" autocomplete=off required>
-						</form>
-					</div>
-				</div>
-
-			</div>
-		</div>
-
-
 		<div id="wrapper-copyright">
 			<div class="copyright">
 				<div class="copy-text object">
 					Copyright © 2016. Template by <a style="color: #D0D1D4;"
-						href="https://dcrazed.com/">Dcrazed</a>
-				</div>
-
-				<div class="wrapper-navbouton">
-					<div class="google object">g</div>
-					<div class="facebook object">f</div>
-					<div class="linkin object">i</div>
-					<div class="dribbble object">d</div>
+						href="https://dcrazed.com/">Won-piece</a>
 				</div>
 			</div>
 		</div>
@@ -247,9 +172,8 @@
 		                        title: "해당 상품으로 이동합니다.",
 		                        text:  "",
 		                        type: "success",
-		                        closeOnConfirm: false,
-		                        showConfirmButton: false,
-		                        showLoaderOnConfirm: true,
+		                        timer: 2000,
+		                        showConfirmButton: false
 		                    });
 		                    setTimeout(() => {
 		                    	window.open("thema"+splitResult[2]+"/view?shopname="+splitResult[1]+"&pno="+searchValue, "_blank");
@@ -261,6 +185,11 @@
 			});// end ajax
 			
 		}
+	});
+	$(".targetImg").on("click",function(event){
+		event.preventDefault();
+		var href =  $(this)[0].firstElementChild.defaultValue;
+		window.open(href, "_blank");
 	});
 </script>
 </body>
