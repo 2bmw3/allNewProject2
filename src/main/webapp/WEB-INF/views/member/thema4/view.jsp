@@ -500,6 +500,16 @@ $('#reviewBtn').on('click', function () {
 	/* 리뷰 버튼 이벤트 시작  */ 
 
    event.preventDefault();
+	if(userid == ''){
+	       swal({
+             title: "로그인을 해주세요.",
+             text: "",
+             type: "error",
+             timer: 1000,
+             showConfirmButton: false
+         });  
+		
+	}else{
          var rcontent = $('#reContent')[0].value;
          var rphoto = $('#rePhoto');
          var rgrade = $('[name="star-input"]:checked').val();
@@ -547,6 +557,7 @@ $('#reviewBtn').on('click', function () {
 	        	}
 		    }); 
 		    //ajax end
+	}
 });
 /* 리뷰 버튼 이벤트 끝! */
 
