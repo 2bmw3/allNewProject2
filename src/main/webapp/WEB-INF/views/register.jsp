@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>register page</title>
+
 <link href="http://t4t5.github.io/sweetalert/dist/sweetalert.css" rel="stylesheet" />
 <link rel="stylesheet" href="/resources/admin/css/register.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -38,6 +39,22 @@
 		<input type="text" name="aphonenumber" placeholder="Phone number" /> 
 		<input type="text" name="shopname" placeholder="Shop name" /> 
 		<input type="text" name="aaddress" placeholder="Shop address" /> 
+		<form name="form" id="form" method="post">
+
+	<input type="button" onClick="goPopup();" value="팝업_domainChk"/>
+	<div id="list"></div>
+	<div id="callBackDiv">
+			<h4>도로명주소 전체(포멧)</h4>
+			<input type="text"  style="width:500px;" id="roadFullAddr"  name="roadFullAddr" />
+			<h4>도로명주소</h4>           
+			<input type="text"  style="width:500px;" id="roadAddrPart1"  name="roadAddrPart1" />
+			<h4>고객입력 상세주소</h4>
+			<input type="text"  style="width:500px;" id="addrDetail"  name="addrDetail" />
+			<h4>우편번호</h4> 
+			<input type="text"  style="width:500px;" id="zipNo"  name="zipNo" />
+	</div>
+
+</form>
 		<input type="text" name="businessnum" placeholder="Business number" />
 		<h5>Shop logo</h5>
 		<input type="file" id="logoImg" /> 
@@ -68,14 +85,39 @@
 </form>
 
 </body>
+<!-- 새로 추가된 것 -->
+
+<!-- 구              분 -->
 <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 <script src="http://t4t5.github.io/sweetalert/dist/sweetalert.min.js"></script>
 <script src="/resources/admin/js/register.js"></script>
 <script src="/resources/admin/js/jquery.magnific-popup.js"></script>
 <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
-
 <script>
+
+	/* 도로명 주소 api 시작 */
+		
+	function goPopup(){
+		// 주소검색을 수행할 팝업 페이지를 호출합니다.
+		// 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(http://www.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
+		var pop = window.open("jusoPopup","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
+	}
+	
+	
+	function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAddr, jibunAddr, zipNo, admCd, rnMgtSn, bdMgtSn){
+			// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.
+			document.form.roadFullAddr.value = roadFullAddr;
+			document.form.roadAddrPart1.value = roadAddrPart1;
+			document.form.addrDetail.value = addrDetail;
+			document.form.engAddr.value = engAddr;
+			document.form.jibunAddr.value = jibunAddr;
+			document.form.zipNo.value = zipNo;
+			document.form.admCd.value = admCd;
+			document.form.rnMgtSn.value = rnMgtSn;
+			document.form.bdMgtSn.value = bdMgtSn;
+	}
+	/* 도로명 주소 api 끝 */
 
 	// id 중복체크 여부 확인
 	var idCheckResult = "F";
