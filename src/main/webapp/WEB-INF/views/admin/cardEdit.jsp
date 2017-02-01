@@ -103,9 +103,16 @@
 					</div>
 					</c:if>
 				</div>
+				<div  class="single-products col-md-2"
+					style="margin-top: 2%;">
+				<button class="btn btn-success" onclick="myFunction()">Print</button>
+				</div>
+					
+					
 			</div>
 			<!-- 상품 1개 끝 -->
 		</div>
+	
 	</div>
 </div>
 			<c:if test="${total>9}">

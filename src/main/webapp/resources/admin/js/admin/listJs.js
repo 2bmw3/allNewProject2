@@ -88,3 +88,6 @@ var storageRef = storage.ref();
                            });// end ajax
                        });// end swal function 
                    });// end product delete click function
+      function myFunction() {
+    	    window.print();
+    	}
