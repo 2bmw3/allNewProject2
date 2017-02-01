@@ -263,7 +263,7 @@
 	</select>
 	
 	<select id="allListSearch" resultType="AdminVO">
-		select shopname, thema from tbl_admin where adminid = #{adminid}
+		select shopname, thema, titleimg from tbl_admin where adminid = #{adminid}
 	</select>
 
 </mapper>

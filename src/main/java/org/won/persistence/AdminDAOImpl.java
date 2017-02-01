@@ -80,4 +80,9 @@ public class AdminDAOImpl implements AdminDAO {
 		return sqlSession.selectOne(NAME + ".getAdminId" , shopname);
 	}
 
+	@Override
+	public void titleImgUpdate(AdminVO vo) throws Exception {
+		sqlSession.update(NAME + ".titleImgUpdate", vo);
+	}
+
 }

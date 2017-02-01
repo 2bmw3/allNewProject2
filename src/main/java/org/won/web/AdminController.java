@@ -13,7 +13,6 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.xml.bind.DatatypeConverter;
 
-import org.apache.ibatis.reflection.SystemMetaObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -287,8 +286,8 @@ public class AdminController {
 		int sizeCnt = 0;
 		List<Integer> colorList = new ArrayList<>();
 		List<Integer> sizeList = new ArrayList<>();
-		String[] addressArr = service.shopTotal(username).get(0).getAaddress().split("\t");
-		String address = addressArr[1] + " " + addressArr[2];  
+//		String[] addressArr = service.shopTotal(username).get(0).getAaddress().split("\t");
+//		String address = addressArr[1] + " " + addressArr[2];  
 		
 		vo.setAdminid(username);
 		model.addAttribute("list", pservice.list(vo));
@@ -296,7 +295,7 @@ public class AdminController {
 		model.addAttribute("shoplogo", service.shopTotal(username).get(0).getShoplogo());
 		model.addAttribute("shopname", service.shopTotal(username).get(0).getShopname());
 		model.addAttribute("phonenumber", service.shopTotal(username).get(0).getAphonenumber());
-		model.addAttribute("shopaddress", address);
+		model.addAttribute("shopaddress", service.shopTotal(username).get(0).getAaddress());
 		model.addAttribute("total", totalData);
 		model.addAttribute("pageNum", pageNum);
 		
@@ -327,8 +326,18 @@ public class AdminController {
 	}
 	
 	@GetMapping("/shopEdit")
-	public void shopEdit(){
-		
+	public void shopEdit(HttpServletRequest request, Model model) throws Exception{
+		String adminid = cookieUtil.cookieUtil(request);
+		String titleimg = pservice.allListSearch(adminid).getTitleimg();
+		model.addAttribute("titleimg", titleimg);
 	}
+	
+	//titleImg edit
+	@PostMapping("/titleImgUpdate")
+	public @ResponseBody String titleImgUpdate(AdminVO vo) throws Exception {
+		service.titleImgUpdate(vo);
+		return "success";
+	}
+	
 	
 }

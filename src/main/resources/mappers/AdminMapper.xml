@@ -58,4 +58,8 @@
 		select adminid from tbl_admin where shopname = #{shopname}
 	</select>
 
+	<update id="titleImgUpdate" parameterType="AdminVO">
+		update tbl_admin set titleimg = #{titleimg} where adminid = #{adminid}
+	</update>
+
 </mapper>

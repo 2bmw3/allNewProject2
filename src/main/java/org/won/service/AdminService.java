@@ -30,4 +30,7 @@ public interface AdminService {
 	
 	// shoname으로 adminid 가져오기
 	public String getAdminId(String shopname) throws Exception;
+	
+	// title image update
+	public void titleImgUpdate(AdminVO vo) throws Exception;
 }

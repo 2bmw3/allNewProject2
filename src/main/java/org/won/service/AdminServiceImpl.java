@@ -72,4 +72,9 @@ public class AdminServiceImpl implements AdminService {
 	public String getAdminId(String shopname) throws Exception {
 		return dao.getAdminId(shopname);
 	}
+
+	@Override
+	public void titleImgUpdate(AdminVO vo) throws Exception {
+		dao.titleImgUpdate(vo);
+	}
 }

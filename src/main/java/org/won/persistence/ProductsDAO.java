@@ -93,7 +93,7 @@ public interface ProductsDAO {
 	// pno로 adminId 찾기
 	public String adminidGet(int pno)throws Exception;
 	
-	// adminid로 shopName, thema 찾기
+	// adminid로 shopName, thema, titleImg 찾기
 	public AdminVO allListSearch(String adminid)throws Exception;
 
 }
