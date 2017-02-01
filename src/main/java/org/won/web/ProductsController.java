@@ -167,14 +167,15 @@ public class ProductsController {
 		String result = "F#";
 		String adminid = service.adminidGet(pno);
 		
-		if(adminid != ""){
+		if(adminid != null){
 			String shopName = service.allListSearch(adminid).getShopname() +"#";
 			String thema = service.allListSearch(adminid).getThema();
-			result += shopName + thema;
+			result = "T#" + shopName + thema;
 		}
 		
 		return result;
 	}
+	
 	@GetMapping("/jusoPopup")
 	public void jusoPopup(){}
 }
