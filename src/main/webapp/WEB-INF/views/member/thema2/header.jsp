@@ -27,23 +27,11 @@ function hideURLbar() {
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script type="text/javascript" src="/resources/themes/thema2/js/move-top.js"></script>
 <script type="text/javascript" src="/resources/themes/thema2/js/easing.js"></script>
-<script type="text/javascript">
-    jQuery(document).ready(function ($) {
-        $(".scroll").click(function (event) {
-            event.preventDefault();
-            $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
-        });
-    });
-</script>
+>
 <!-- start menu -->
 <script src="/resources/themes/thema2/js/simpleCart.min.js"></script>
 <link href="/resources/themes/thema2/css/memenu.css" rel="stylesheet" type="text/css" media="all"/>
 <script type="text/javascript" src="/resources/themes/thema2/js/memenu.js"></script>
-<script>
- $(document).ready(function () { 
-    $(".memenu").memenu();
- });   
-</script>
 <!--top-header-->
 <div class="top-header">
     <div class="container">
@@ -76,8 +64,13 @@ function hideURLbar() {
 </div>
 <!--bottom-header-->
 
-
 <script>
+$(document).ready(function () {
+	$(".scroll").click(function (event) {
+        event.preventDefault();
+        $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
+    });
+	$(".memenu").memenu();
 	var url = document.location.href; 
 	$("#hLogin").children().attr("href", "/member/login?url="+url);
 	
@@ -152,4 +145,5 @@ function hideURLbar() {
 	        if(typeof cDay != 'undefined') cookies += ';expires=' + expire.toGMTString() + ';';
 	        document.cookie = cookies;
 	    }
-	</script>
+});
+</script>
