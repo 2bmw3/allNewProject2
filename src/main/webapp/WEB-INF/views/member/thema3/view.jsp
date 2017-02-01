@@ -133,11 +133,11 @@ ul.uli {
 				<div role="tabpanel" class="tab-pane active" id="description">
 					<div class="col-md-12 col-md-offset-2 ">${view[0].pcontent}</div>
 				</div>
-				<div role="tabpanel" class="tab-pane" id="qna">
+				
+			<div role="tabpanel" class="tab-pane" id="qna">
 				<div class="col-md-12 ">					
 				<!--  QnA start -->
 				  <div class="panel-group" id="accordion" style="margin-top: 2%;">
-				    		
 				   <c:forEach items="${qna}" var="qvo">		    
 				    <div class="panel panel-default">
 				      <div class="panel-heading">
@@ -179,13 +179,16 @@ ul.uli {
 			<input id='qsubmit' type="submit" class="btn btn-primary" value="Submit">
 				
 			</div>
+			
 				<div role="tabpanel" class="tab-pane" id="review">
 					<div class="col-md-12">	
 					  <div class="panel-group" id="reviewList" style="margin-top: 2%;" >				
 					<c:forEach items="${review}" var="rvo">		    
 				    <div class="panel panel-warning">
 				      <div class="panel-heading">
-				  		<a data-toggle="collapse" data-parent="#accordion" href="#collapse${rvo.rno}">
+				       <h4 class="panel-title">
+				  		<a data-toggle="collapse" data-parent="#reviewList" href="#collapse${rvo.rno}">
+				  		 </h4>
 				  		<div class="row">
 				  			<div class="col-md-9">				  			
 				          	<b>${rvo.userid}</b>

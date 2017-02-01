@@ -140,10 +140,10 @@
 							   <c:forEach items="${review}" var="rvo">
 							    <div class="panel panel-default">
 							      <div class="panel-heading">
-							        <h4 class="panel-title">
+							        
 							          <a data-toggle="collapse" data-parent="#accordion" href="#collapse${rvo.rno}">
-							          	ID : ${rvo.userid} (${rvo.rgrade}점)</a>
-							        </h4>
+							        <h4 class="panel-title">  	ID : ${rvo.userid} (${rvo.rgrade}점) </h4></a>
+							       
 							      </div>
 							      <div id="collapse${rvo.rno}" class="panel-collapse collapse">
 							        <div class="panel-body">
