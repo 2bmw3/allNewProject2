@@ -322,4 +322,10 @@ public class AdminController {
 		String adminShopURL = "/member/thema" + shopThema + "/index?shopname=" + shopName;
 		return adminShopURL;
 	}
+	
+	@GetMapping("/shopEdit")
+	public void shopEdit(){
+		
+	}
+	
 }

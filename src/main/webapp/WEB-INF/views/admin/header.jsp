@@ -143,7 +143,10 @@
                         <a href="write"><i class="fa fa-edit fa-fw"></i>상품 등록</a>
                     </li>
                     <li>
-                        <a href="cardEdit?pageNum=1">&nbsp;<i class="fa fa-id-badge"></i>&nbsp;카드 제작</a>
+                        <a href="cardEdit?pageNum=1"><i class="fa fa-id-badge"></i> 카드 제작</a>
+                    </li>
+                    <li>
+                        <a href="shopEdit"><i class="fa fa-file-photo-o"></i> 홈페이지 수정</a>
                     </li>
                 </ul>
             </div>
