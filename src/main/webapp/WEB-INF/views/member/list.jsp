@@ -151,23 +151,15 @@
 
 
 
-	<!-- SCRIPT -->
-	<script
-		src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script type="text/javascript"
-		src="/resources/member/allList/js/jquery.scrollTo.min.js"></script>
-	<script type="text/javascript"
-		src="/resources/member/allList/js/jquery.localScroll.min.js"></script>
-	<script type="text/javascript"
-		src="/resources/member/allList/js/jquery-animate-css-rotate-scale.js"></script>
-	<script type="text/javascript"
-		src="/resources/member/allList/js/fastclick.min.js"></script>
-	<script type="text/javascript"
-		src="/resources/member/allList/js/jquery.animate-colors-min.js"></script>
-	<script type="text/javascript"
-		src="/resources/member/allList/js/jquery.animate-shadow-min.js"></script>
-	<script type="text/javascript"
-		src="/resources/member/allList/js/alllistmain.js"></script>
+<!-- SCRIPT -->
+<script	src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript"	src="/resources/member/allList/js/jquery.scrollTo.min.js"></script>
+<script type="text/javascript"	src="/resources/member/allList/js/jquery.localScroll.min.js"></script>
+<script type="text/javascript"	src="/resources/member/allList/js/jquery-animate-css-rotate-scale.js"></script>
+<script type="text/javascript"	src="/resources/member/allList/js/fastclick.min.js"></script>
+<script type="text/javascript"	src="/resources/member/allList/js/jquery.animate-colors-min.js"></script>
+<script type="text/javascript"	src="/resources/member/allList/js/jquery.animate-shadow-min.js"></script>
+<script type="text/javascript"	src="/resources/member/allList/js/alllistmain.js"></script>
 <script src="http://t4t5.github.io/sweetalert/dist/sweetalert.min.js"></script>
 <script>
 	$("#tip_search_input").on("keydown",function(key){
@@ -182,7 +174,22 @@
 				dataType : 'text',
 				type : "post",
 				success : function(result) {
-					swal(result);
+					var splitResult = result.split("#");
+					if(splitResult[0] == "T"){
+						 swal({
+		                        title: "해당 상품으로 이동합니다.",
+		                        text:  "",
+		                        type: "success",
+		                        closeOnConfirm: false,
+		                        showConfirmButton: false,
+		                        showLoaderOnConfirm: true,
+		                    });
+		                    setTimeout(() => {
+		                    	window.open("thema"+splitResult[2]+"/view?shopname="+splitResult[1]+"&pno="+searchValue, "_blank");
+		                }, 1500);
+					}else{
+						swal("해당 상품이 없습니다!","","error");
+					}
 				}// end success
 			});// end ajax
 			
