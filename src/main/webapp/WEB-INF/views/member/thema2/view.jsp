@@ -79,6 +79,7 @@
 						</div>
 						<div class="clearfix"></div>
 					</div>
+					<br>
 					<!-- nav div start -->
 					 <ul class="nav nav-tabs">
 					    <li class="active"><a data-toggle="tab" href="#detailView">Detail View</a></li>

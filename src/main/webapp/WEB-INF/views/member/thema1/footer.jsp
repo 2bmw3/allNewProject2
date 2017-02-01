@@ -82,10 +82,6 @@
 <script src="/resources/member/js/rate.js"></script>
 <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
 <!-- 구                 분 -->
-<!-- <!-- jQuery library --> -->
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
-<!-- <!-- Include all compiled plugins (below), or include individual files as needed --> -->
-<!-- <script src="/resources/themes/thema1/js/bootstrap.js"></script> -->
 <!-- SmartMenus jQuery plugin -->
 <script type="text/javascript"
 	src="/resources/themes/thema1/js/jquery.smartmenus.js"></script>
@@ -114,7 +110,4 @@
 	    $("#pageInput").val($(this).val());
 	    $("#pageNumForm").submit();
 	 });
-
-
 </script>
-

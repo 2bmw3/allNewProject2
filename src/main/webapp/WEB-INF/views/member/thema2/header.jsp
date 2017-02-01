@@ -40,9 +40,9 @@ function hideURLbar() {
 <link href="/resources/themes/thema2/css/memenu.css" rel="stylesheet" type="text/css" media="all"/>
 <script type="text/javascript" src="/resources/themes/thema2/js/memenu.js"></script>
 <script>
- /* $(document).ready(function () {  */
+ $(document).ready(function () { 
     $(".memenu").memenu();
-/* }); */  
+ });   
 </script>
 <!--top-header-->
 <div class="top-header">
