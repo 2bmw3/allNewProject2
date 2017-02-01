@@ -64,7 +64,7 @@
            <!-- QnA alert  -->
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
-                	<i onclick="myFunction()" id="dropbtn" class="fa fa-bell fa-fw"></i> 
+                	<i class="fa fa-bell fa-fw"></i> 
                 	<span id="count" class="label label-success">0</span>
                 </a>
                 <ul style="overflow:scroll; width:350px; height:500px;" class="dropdown-menu dropdown-messages" id="qnaDropdown">
