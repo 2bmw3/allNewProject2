@@ -160,5 +160,20 @@ public class ProductsController {
 		// 스플릿해서
 		return result;
 	}
+	
+	//allList search
+	@PostMapping(value = "/pnoSearch", produces = "application/text; charset=utf8")
+	public @ResponseBody String pnoSearch(int pno) throws Exception {
+		String result = "F#";
+		String adminid = service.adminidGet(pno);
+		
+		if(adminid != ""){
+			String shopName = service.allListSearch(adminid).getShopname() +"#";
+			String thema = service.allListSearch(adminid).getThema();
+			result += shopName + thema;
+		}
+		
+		return result;
+	}
 
 }

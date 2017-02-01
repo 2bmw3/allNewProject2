@@ -205,4 +205,14 @@ public class ProductsDAOImpl implements ProductsDAO {
 	public List<ProductsVO> mTotalList() throws Exception {
 		return sqlSession.selectList(NAME + ".mTotalList");
 	}
+
+	@Override
+	public String adminidGet(int pno) throws Exception {
+		return sqlSession.selectOne(NAME + ".adminidGet", pno);
+	}
+
+	@Override
+	public AdminVO allListSearch(String adminid) throws Exception {
+		return sqlSession.selectOne(NAME + ".allListSearch", adminid);
+	}
 }

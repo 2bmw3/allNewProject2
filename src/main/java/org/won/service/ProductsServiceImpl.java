@@ -260,4 +260,14 @@ public class ProductsServiceImpl implements ProductsService {
 	public List<ProductsVO> mTotalList() throws Exception {
 		return dao.mTotalList();
 	}
+
+	@Override
+	public String adminidGet(int pno) throws Exception {
+		return dao.adminidGet(pno);
+	}
+
+	@Override
+	public AdminVO allListSearch(String adminid) throws Exception {
+		return dao.allListSearch(adminid);
+	}
 }

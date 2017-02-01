@@ -257,5 +257,13 @@
 		products.adminid =
 		tbl_admin.adminid order by pregdate desc
 	</select>
+	
+	<select id="adminidGet" resultType="String">
+		select adminid from tbl_products where pno = #{pno}
+	</select>
+	
+	<select id="allListSearch" resultType="AdminVO">
+		select shopname, thema from tbl_admin where adminid = #{adminid}
+	</select>
 
 </mapper>

@@ -21,9 +21,9 @@ public interface ProductsService {
 	public List<ProductsVO> list(ProductsVO vo) throws Exception;
 
 	public List<PinfoVO> info(int pno) throws Exception;
-	
+
 	public List<PinfoVO> infoColor(int pno) throws Exception;
-	
+
 	public List<PinfoVO> infoSize(PinfoVO vo) throws Exception;
 
 	public List<QuestionVO> question(int pno) throws Exception;
@@ -37,9 +37,9 @@ public interface ProductsService {
 	public int searchTotal(SearchVO search) throws Exception;
 
 	public int total(String adminid) throws Exception;
-	
+
 	public int pkindTotal(ProductsVO vo) throws Exception;
-	
+
 	public void containDelete() throws Exception;
 
 	public List<ProductsVO> updateProductsRead(int pno) throws Exception;
@@ -51,29 +51,34 @@ public interface ProductsService {
 	public List<PphotosVO> pphotoRead(int pno) throws Exception;
 
 	public void qstatus(int qno) throws Exception;
-	
-	
+
 	public List<ProductsVO> memberRead(int pno) throws Exception;
-	
-	//thema 번호 가져오는 함수
-	public AdminVO themaGet(int pno)throws Exception;
-	
-	//pkindList
+
+	// thema 번호 가져오는 함수
+	public AdminVO themaGet(int pno) throws Exception;
+
+	// pkindList
 	public List<ProductsVO> pkindList(ProductsVO vo) throws Exception;
-	
-	//인기상품
+
+	// 인기상품
 	public List<ProductsVO> hitItem(AdminVO vo) throws Exception;
 
-	//최신상품
+	// 최신상품
 	public List<ProductsVO> newItem(AdminVO vo) throws Exception;
-	
-	//멤버 전체 상품
+
+	// 멤버 전체 상품
 	public List<ProductsVO> mTotalList() throws Exception;
-	
+
 	// 멤버 성별 전체 상품
 	public List<ProductsVO> mGenderList(String pgender) throws Exception;
 
 	// 멤버 종류별 전체 상품
 	public List<ProductsVO> mPkindList(String pkind) throws Exception;
+
+	// pno로 adminid 찾기
+	public String adminidGet(int pno) throws Exception;
+
+	// adminid로 shopName, thema 찾기
+	public AdminVO allListSearch(String adminid) throws Exception;
 
 }

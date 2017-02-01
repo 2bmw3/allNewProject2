@@ -89,5 +89,11 @@ public interface ProductsDAO {
 
 	// 멤버 종류별 전체 상품
 	public List<ProductsVO> mPkindList(String pkind) throws Exception;
+	
+	// pno로 adminId 찾기
+	public String adminidGet(int pno)throws Exception;
+	
+	// adminid로 shopName, thema 찾기
+	public AdminVO allListSearch(String adminid)throws Exception;
 
 }
