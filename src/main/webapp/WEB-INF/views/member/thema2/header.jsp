@@ -35,13 +35,12 @@ function hideURLbar() {
 <div class="top-header">
     <div class="container">
         <div class="top-header-main">
-            <div class="col-md-4 top-header-middle">
-                <a href="index?shopname=${param.shopname}">
-                <img style = 'width: 120px;height:90px; float:left;' 
-                        	src='https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shoplogo%2F${shoplogo}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e'>
-<%--                      <p  style = 'float:left;'>${shopname}</p> --%>
-				</a>
-            </div>
+<!--             <div class="col-md-4 top-header-middle"> -->
+<%--                 <a href="index?shopname=${param.shopname}"> --%>
+<!--                 <img style = 'width: 120px;height:90px; float:left;'  -->
+<%--                         	src='https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shoplogo%2F${shoplogo}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e'> --%>
+<!-- 				</a> -->
+<!--             </div> -->
             <div class="clearfix"></div>
         </div>
     </div>
@@ -52,6 +51,11 @@ function hideURLbar() {
     <div class="container">
         <div class="top-nav">
             <ul class="memenu skyblue hHeader">
+			
+            	<a href="index?shopname=${param.shopname}">
+                	<img style = 'width: 120px;height:90px;' 
+                   	     		src='https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shoplogo%2F${shoplogo}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e'>
+				</a>
                 <li class="active"><a href="/member/index">Main</a></li>
                 <li class="grid"><a href="index?shopname=${param.shopname}">Home</a></li>
                 <li class="grid"><a href="list?shopname=${param.shopname}&pkind=전체&pageNum=1">Products</a></li>
@@ -73,7 +77,7 @@ $(document).ready(function () {
         event.preventDefault();
         $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
     });
-	$(".memenu").memenu();
+	
 	var url = document.location.href; 
 	$("#hLogin").children().attr("href", "/member/login?url="+url);
 	
@@ -87,7 +91,7 @@ $(document).ready(function () {
 		}else{}
 	}());
 
-	
+	$(".memenu").memenu();
 	$("#hLogout").on("click", function(){
 		swal({
 			  title: "로그아웃 하시겠습니까?",

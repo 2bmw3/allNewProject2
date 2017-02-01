@@ -92,7 +92,6 @@ public class MemberController {
 		vo.setLimitnum(8);
 		
 		model.addAttribute("shoplogo", aservice.shopTotal(adminid).get(0).getShoplogo());
-		model.addAttribute("shopname", aservice.shopTotal(adminid).get(0).getShopname());
 		List<ProductsVO> viewList = new ArrayList<ProductsVO>();
 		List<ProductsVO> hitItem = pservice.hitItem(vo);
 		List<ProductsVO> newItem = pservice.newItem(vo);
@@ -125,7 +124,6 @@ public class MemberController {
 		PageingUtil pageing = new PageingUtil(totalData, pageNum);
 
 		model.addAttribute("shoplogo", aservice.shopTotal(adminid).get(0).getShoplogo());
-		model.addAttribute("shopname", aservice.shopTotal(adminid).get(0).getShopname());
 		model.addAttribute("list", pservice.pkindList(vo));
 		model.addAttribute("page", pageing);
 		model.addAttribute("actionName", "topList");
@@ -139,7 +137,6 @@ public class MemberController {
 		String adminid = aservice.getAdminId(shopname);
 		
 		model.addAttribute("shoplogo", aservice.shopTotal(adminid).get(0).getShoplogo());
-		model.addAttribute("shopname", aservice.shopTotal(adminid).get(0).getShopname());
 		model.addAttribute("view", pservice.read(pno));
 		model.addAttribute("review", bservice.reviewRead(pno));
 		model.addAttribute("qna", pservice.question(pno));
@@ -151,7 +148,6 @@ public class MemberController {
 	public void thema1Faq(String shopname, Model model) throws Exception {
 		String adminid = aservice.getAdminId(shopname);
 		model.addAttribute("shoplogo", aservice.shopTotal(adminid).get(0).getShoplogo());
-		model.addAttribute("shopname", aservice.shopTotal(adminid).get(0).getShopname());
 	}
 
 	@GetMapping("/thema1/account")
@@ -166,7 +162,6 @@ public class MemberController {
 		
 		String adminid = aservice.getAdminId(shopname);
 		model.addAttribute("shoplogo", aservice.shopTotal(adminid).get(0).getShoplogo());
-		model.addAttribute("shopname", aservice.shopTotal(adminid).get(0).getShopname());
 		model.addAttribute("cart", oservice.cartList(vo));
 	}
 
@@ -182,7 +177,6 @@ public class MemberController {
 		vo.setShopname(shopname);
 		vo.setUserid(cookieUtil.cookieUtil(request,"userid"));
 		model.addAttribute("shoplogo", aservice.shopTotal(adminid).get(0).getShoplogo());
-		model.addAttribute("shopname", aservice.shopTotal(adminid).get(0).getShopname());
 		model.addAttribute("order", oservice.memberOrderList(vo));
 	}
 	// thema1 end!
@@ -196,7 +190,6 @@ public class MemberController {
 		vo.setLimitnum(8);
 
 		model.addAttribute("shoplogo", aservice.shopTotal(adminid).get(0).getShoplogo());
-		model.addAttribute("shopname", aservice.shopTotal(adminid).get(0).getShopname());
 		model.addAttribute("hitItem", pservice.hitItem(vo));
 		model.addAttribute("newItem", pservice.newItem(vo));
 	}
@@ -214,7 +207,6 @@ public class MemberController {
 		vo.setAdminid(adminid);
 
 		model.addAttribute("shoplogo", aservice.shopTotal(adminid).get(0).getShoplogo());
-		model.addAttribute("shopname", aservice.shopTotal(adminid).get(0).getShopname());
 		model.addAttribute("list", pservice.list(vo));
 		model.addAttribute("page", pageing);
 		model.addAttribute("actionName", "list");
@@ -235,7 +227,6 @@ public class MemberController {
 		PageingUtil pageing = new PageingUtil(totalData, pageNum);
 
 		model.addAttribute("shoplogo", aservice.shopTotal(adminid).get(0).getShoplogo());
-		model.addAttribute("shopname", aservice.shopTotal(adminid).get(0).getShopname());
 		model.addAttribute("list", pservice.pkindList(vo));
 		model.addAttribute("page", pageing);
 		model.addAttribute("actionName", "topList");
@@ -250,7 +241,6 @@ public class MemberController {
 		String adminid = aservice.getAdminId(shopname);
 		
 		model.addAttribute("shoplogo", aservice.shopTotal(adminid).get(0).getShoplogo());
-		model.addAttribute("shopname", aservice.shopTotal(adminid).get(0).getShopname());
 		model.addAttribute("view", pservice.read(pno));
 		model.addAttribute("review", bservice.reviewRead(pno));
 		model.addAttribute("qna", pservice.question(pno));
@@ -270,7 +260,6 @@ public class MemberController {
 		vo.setUserid(cookieUtil.cookieUtil(request,"userid"));
 		
 		model.addAttribute("shoplogo", aservice.shopTotal(adminid).get(0).getShoplogo());
-		model.addAttribute("shopname", aservice.shopTotal(adminid).get(0).getShopname());
 		model.addAttribute("cart", oservice.cartList(vo));
 
 	}
@@ -285,7 +274,6 @@ public class MemberController {
 		String adminid = aservice.getAdminId(shopname);
 		
 		model.addAttribute("shoplogo", aservice.shopTotal(adminid).get(0).getShoplogo());
-		model.addAttribute("shopname", aservice.shopTotal(adminid).get(0).getShopname());
 		model.addAttribute("order", oservice.memberOrderList(vo));
 	}
 	// thema2 end
@@ -299,7 +287,6 @@ public class MemberController {
 		vo.setLimitnum(6);
 
 		model.addAttribute("shoplogo", aservice.shopTotal(adminid).get(0).getShoplogo());
-		model.addAttribute("shopname", aservice.shopTotal(adminid).get(0).getShopname());
 		model.addAttribute("hitItem", pservice.hitItem(vo));
 	}
 
@@ -315,7 +302,6 @@ public class MemberController {
 		vo.setAdminid(adminid);
 
 		model.addAttribute("shoplogo", aservice.shopTotal(adminid).get(0).getShoplogo());
-		model.addAttribute("shopname", aservice.shopTotal(adminid).get(0).getShopname());
 		model.addAttribute("list", pservice.list(vo));
 		model.addAttribute("page", pageing);
 		model.addAttribute("actionName", "list");
@@ -336,7 +322,6 @@ public class MemberController {
 		PageingUtil pageing = new PageingUtil(totalData, pageNum);
 
 		model.addAttribute("shoplogo", aservice.shopTotal(adminid).get(0).getShoplogo());
-		model.addAttribute("shopname", aservice.shopTotal(adminid).get(0).getShopname());
 		model.addAttribute("list", pservice.pkindList(vo));
 		model.addAttribute("page", pageing);
 		model.addAttribute("actionName", "topList");
@@ -349,7 +334,6 @@ public class MemberController {
 		
 		String adminid = aservice.getAdminId(shopname);
 		model.addAttribute("shoplogo", aservice.shopTotal(adminid).get(0).getShoplogo());
-		model.addAttribute("shopname", aservice.shopTotal(adminid).get(0).getShopname());
 		model.addAttribute("view", pservice.read(pno));
 		model.addAttribute("review", bservice.reviewRead(pno));
 		model.addAttribute("qna", pservice.question(pno));
@@ -367,7 +351,6 @@ public class MemberController {
 		String adminid = aservice.getAdminId(shopname);
 		
 		model.addAttribute("shoplogo", aservice.shopTotal(adminid).get(0).getShoplogo());
-		model.addAttribute("shopname", aservice.shopTotal(adminid).get(0).getShopname());
 		model.addAttribute("order", oservice.memberOrderList(vo));
 	}
 
@@ -381,7 +364,6 @@ public class MemberController {
 		String adminid = aservice.getAdminId(shopname);
 
 		model.addAttribute("shoplogo", aservice.shopTotal(adminid).get(0).getShoplogo());
-		model.addAttribute("shopname", aservice.shopTotal(adminid).get(0).getShopname());
 		model.addAttribute("cart", oservice.cartList(vo));
 	}
 
@@ -401,7 +383,6 @@ public class MemberController {
 		PageingUtil pageing = new PageingUtil(totalData, pageNum);
 
 		model.addAttribute("shoplogo", aservice.shopTotal(adminid).get(0).getShoplogo());
-		model.addAttribute("shopname", aservice.shopTotal(adminid).get(0).getShopname());
 		model.addAttribute("list", pservice.pkindList(vo));
 		model.addAttribute("page", pageing);
 		model.addAttribute("actionName", "topList");
@@ -416,7 +397,6 @@ public class MemberController {
 		String adminid = aservice.getAdminId(shopname);
 		
 		model.addAttribute("shoplogo", aservice.shopTotal(adminid).get(0).getShoplogo());
-		model.addAttribute("shopname", aservice.shopTotal(adminid).get(0).getShopname());
 		model.addAttribute("view", pservice.read(pno));
 		model.addAttribute("review", bservice.reviewRead(pno));
 		model.addAttribute("qna", pservice.question(pno));
@@ -432,7 +412,6 @@ public class MemberController {
 		vo.setLimitnum(6);
 
 		model.addAttribute("shoplogo", aservice.shopTotal(adminid).get(0).getShoplogo());
-		model.addAttribute("shopname", aservice.shopTotal(adminid).get(0).getShopname());
 		model.addAttribute("newItem", pservice.newItem(vo));
 	}
 	@GetMapping("/thema4/cart")
@@ -445,7 +424,6 @@ public class MemberController {
 		String adminid = aservice.getAdminId(shopname);
 
 		model.addAttribute("shoplogo", aservice.shopTotal(adminid).get(0).getShoplogo());
-		model.addAttribute("shopname", aservice.shopTotal(adminid).get(0).getShopname());
 		model.addAttribute("cart", oservice.cartList(vo));
 	}
 	
@@ -459,7 +437,6 @@ public class MemberController {
 		String adminid = aservice.getAdminId(shopname);
 		
 		model.addAttribute("shoplogo", aservice.shopTotal(adminid).get(0).getShoplogo());
-		model.addAttribute("shopname", aservice.shopTotal(adminid).get(0).getShopname());
 		model.addAttribute("order", oservice.memberOrderList(vo));
 	}
 	// thema4 end
