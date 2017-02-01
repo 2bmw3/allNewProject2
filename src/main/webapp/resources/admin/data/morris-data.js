@@ -3,59 +3,65 @@ $(function() {
     Morris.Area({
         element: 'morris-area-chart',
         data: [{
-            period: '2010 Q1',
-            iphone: 2666,
-            ipad: null,
-            itouch: 2647
+            period: '2010',
+            상의: 2666,
+            하의: null,
+            아우터: 2647,
+            신발및악세사리 : 2225,
+            기타 : 160
         }, {
-            period: '2010 Q2',
-            iphone: 2778,
-            ipad: 2294,
-            itouch: 2441
+            period: '2011',
+            상의: 2778,
+            하의: 2294,
+            아우터: 2441,
+            신발및악세사리 : 3521,
+            기타 : 788
         }, {
-            period: '2010 Q3',
-            iphone: 4912,
-            ipad: 1969,
-            itouch: 2501
+            period: '2012',
+            상의: 4912,
+            하의: 1969,
+            아우터: 2501,
+            신발및악세사리 : 6650,
+            기타 : 63
         }, {
-            period: '2010 Q4',
-            iphone: 3767,
-            ipad: 3597,
-            itouch: 5689
+            period: '2013',
+            상의: 3767,
+            하의: 3597,
+            아우터: 5689,
+            신발및악세사리 : 2235,
+            기타 : 770
         }, {
-            period: '2011 Q1',
-            iphone: 6810,
-            ipad: 1914,
-            itouch: 2293
+            period: '2014',
+            상의: 6810,
+            하의: 1914,
+            아우터: 2293,
+            신발및악세사리 : 1168,
+            기타 : 1770
         }, {
-            period: '2011 Q2',
-            iphone: 5670,
-            ipad: 4293,
-            itouch: 1881
+            period: '2015',
+            상의: 5670,
+            하의: 10293,
+            아우터: 1881,
+            신발및악세사리 : 665,
+            기타 : 698
         }, {
-            period: '2011 Q3',
-            iphone: 4820,
-            ipad: 3795,
-            itouch: 1588
+            period: '2016',
+            상의: 12360,
+            하의: 8795,
+            아우터: 1588,
+            신발및악세사리 : 352,
+            기타 : 990
         }, {
-            period: '2011 Q4',
-            iphone: 15073,
-            ipad: 5967,
-            itouch: 5175
-        }, {
-            period: '2012 Q1',
-            iphone: 10687,
-            ipad: 4460,
-            itouch: 2028
-        }, {
-            period: '2012 Q2',
-            iphone: 8432,
-            ipad: 5713,
-            itouch: 1791
+            period: '2017',
+            상의: 506,
+            하의: 230,
+            아우터: 450,
+            신발및악세사리 : 120,
+            기타 : 23
         }],
         xkey: 'period',
-        ykeys: ['iphone', 'ipad', 'itouch'],
-        labels: ['iPhone', 'iPad', 'iPod Touch'],
+        ykeys: ['상의', '하의', '아우터', '신발및악세사리', '기타'],
+        labels: ['상의', '하의', '아우터', '신발및악세사리', '기타'],
         pointSize: 2,
         hideHover: 'auto',
         resize: true
@@ -79,37 +85,25 @@ $(function() {
     Morris.Bar({
         element: 'morris-bar-chart',
         data: [{
-            y: '2006',
-            a: 100,
-            b: 90
+            y: '10대',
+            a: 33,
+            b: 67
         }, {
-            y: '2007',
-            a: 75,
-            b: 65
+            y: '20대',
+            a: 43,
+            b: 57
         }, {
-            y: '2008',
-            a: 50,
-            b: 40
+            y: '30대',
+            a: 12,
+            b: 78
         }, {
-            y: '2009',
-            a: 75,
-            b: 65
-        }, {
-            y: '2010',
-            a: 50,
-            b: 40
-        }, {
-            y: '2011',
-            a: 75,
-            b: 65
-        }, {
-            y: '2012',
-            a: 100,
-            b: 90
+            y: '40대',
+            a: 0,
+            b: 100
         }],
         xkey: 'y',
         ykeys: ['a', 'b'],
-        labels: ['Series A', 'Series B'],
+        labels: ['남자', '여자'],
         hideHover: 'auto',
         resize: true
     });
