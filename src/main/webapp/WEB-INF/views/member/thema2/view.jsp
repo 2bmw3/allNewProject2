@@ -198,6 +198,7 @@
 
 <%@include file="footer.jsp"%>
 <script>	
+//od
 function getCookie(cname) {
 	   var name = cname + "=";
 	   var cookie = document.cookie.split(';');
