@@ -15,13 +15,15 @@ function goPopup(){
 	// 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(http://www.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
     var pop = window.open("jusoPopup","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
 }
-function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAddr, jibunAddr, zipNo, admCd, rnMgtSn, bdMgtSn){
+function jusoCallBack(roadAddrPart1,addrDetail,roadAddrPart2, zipNo){
 	// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.
-	
+
 	document.getElementById('roadAddrPart1').value = roadAddrPart1;
 	document.getElementById('roadAddrPart2').value = roadAddrPart2;
 	document.getElementById('addrDetail').value = addrDetail;
 	document.getElementById('zipNo').value = zipNo;
+	
+	document.getElementById('aaddress').value = zipNo + "\t" + roadAddrPart1 + "\t" + addrDetail;
 }
 </script>
 <body>
@@ -57,8 +59,8 @@ function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAdd
 				<input type="text" id="zipNo" name="zipNo" readonly placeholder="우편번호">
 				<input type="button"  value="주소검색" onclick="goPopup();">
 				<input type="text" id="roadAddrPart1" placeholder="도로명주소">
-				<input type="text" id="addrDetail"  value="" placeholder="상세주소">
-				<input type="text" id="roadAddrPart2"  value="" placeholder="상세주소">
+				<input type="text" id="addrDetail" style="width: 50%; float:left;" value="" placeholder="상세주소1">
+				<input type="text" id="roadAddrPart2" style="width: 50%;" value="" placeholder="상세주소2">
 		</div>
 		<input type="text" name="businessnum" placeholder="Business number" />
 		<h5>Shop logo</h5>
@@ -259,6 +261,8 @@ function jusoCallBack(roadFullAddr,roadAddrPart1,addrDetail,roadAddrPart2,engAdd
 			adminpwCheck.val("");
 		}
 	});// end pwCheck event
+	
+	
 
 </script>
 

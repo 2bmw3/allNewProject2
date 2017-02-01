@@ -53,7 +53,6 @@ public class LoginController {
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		String encodeAdminpw = passwordEncoder.encode(vo.getAdminpw());
 		vo.setAdminpw(encodeAdminpw);
-
 		service.create(vo);
 		return "redirect:/login";
 	}

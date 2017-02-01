@@ -7,16 +7,11 @@
 <% 
 	request.setCharacterEncoding("UTF-8");  //한글깨지면 주석제거
 	String inputYn = request.getParameter("inputYn"); 
-	String roadFullAddr = request.getParameter("roadFullAddr"); 
 	String roadAddrPart1 = request.getParameter("roadAddrPart1"); 
 	String roadAddrPart2 = request.getParameter("roadAddrPart2"); 
-	String engAddr = request.getParameter("engAddr"); 
 	String jibunAddr = request.getParameter("jibunAddr"); 
 	String zipNo = request.getParameter("zipNo"); 
 	String addrDetail = request.getParameter("addrDetail"); 
-	String admCd    = request.getParameter("admCd");
-	String rnMgtSn = request.getParameter("rnMgtSn");
-	String bdMgtSn  = request.getParameter("bdMgtSn");
 %>
 </head>
 <script language="javascript">
@@ -33,9 +28,8 @@ function init(){
 		document.form.action="http://www.juso.go.kr/addrlink/addrLinkUrl.do"; //인터넷망
 		document.form.submit();
 	}else{
-		opener.jusoCallBack("<%=roadFullAddr%>","<%=roadAddrPart1%>","<%=addrDetail%>",
-			"<%=roadAddrPart2%>","<%=engAddr%>","<%=jibunAddr%>","<%=zipNo%>", 
-			"<%=admCd%>", "<%=rnMgtSn%>", "<%=bdMgtSn%>");
+		opener.jusoCallBack("<%=roadAddrPart1%>","<%=addrDetail%>",
+			"<%=roadAddrPart2%>","<%=jibunAddr%>","<%=zipNo%>");
 		window.close();
 	}
 }
