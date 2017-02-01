@@ -176,5 +176,9 @@ public class ProductsController {
 		return result;
 	}
 	@GetMapping("/jusoPopup")
-	public void jusoPopup(){}
+	public void getJusoPopup(){}
+	
+	@PostMapping("/jusoPopup")
+	public void postJusoPopup(){}
+	
 }
