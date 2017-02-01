@@ -238,13 +238,26 @@ ul.uli {
 <%@include file="footer.jsp"%>
 <script>
 	$(document).ready(function() {
-		var ccnt = null;
-		var color = null;
-		var pno = ${view[0].pno};
-		var size = null;
-		var adminid = "${view[0].adminid}";
-		var emptyReview = $('#emptyReview');
-		var userid = "test user";
+		function getCookie(cname) {
+			   var name = cname + "=";
+			   var cookie = document.cookie.split(';');
+			   for (var i = 0; i < cookie.length; i++) {
+			      var value = cookie[i].trim();
+			      if (value.indexOf(name) == 0) {
+			         return value.substring(name.length,
+			               value.length);
+			      }
+			   }
+			   return "";
+			}
+
+			var ccnt = null;
+			var color = null;
+			var pno = ${view[0].pno};
+			var size = null;
+			var adminid = "${view[0].adminid}";
+			var emptyReview = $('#emptyReview');
+		    var userid = getCookie('userid'); 
 		
 			
 		/* for firebase upload */

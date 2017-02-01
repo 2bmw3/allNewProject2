@@ -64,11 +64,44 @@ function qnaList(){
      });
 };
 
-
 (function () {
 	qnaList();
+	orderList();
 }());
 
+function orderList(){
+	$.ajax({
+        url : "orderLatter",
+        data : "adminid=" + username,
+        dataType : "JSON",
+        type : "post",
+        success : function(data) {
+           var count = data.length;
+           qnaLastCnt = count;
+           var str = "";
+           if (data != "") {
+
+              $.each(data,function(key,index) {
+	                     str+="<li class='divider'></li>"
+	                    	  +"<li>"
+	                          +    "<a href='order'>"
+	                          +        "<div>"
+	                          + 	  	 	"<img style='  position: relative; display: inline-block; border-radius: 50%; width: 40px; height: 40px;' src='https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F"
+	                          + 			index.ptitlephoto
+	                          + 			"?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e' style='width:30px;height:30px;'>"
+	                          +            	"<strong>'" + index.pname + "'</strong>"
+	                          +        "</div>"
+	                          +        "<div>&nbsp;&nbsp;&nbsp;&nbsp; 이 상품에 주문이 들어왔습니다.</div>"
+	                          +    "</a>"
+	                          +"</li>";
+                            
+                          });
+              $('#orderCount').html(count);
+              $('#orderDropdown')[0].innerHTML = str;
+           }
+        }
+     });
+};
 // qna new count call
 //setInterval(function() {
 //    $.ajax({      
