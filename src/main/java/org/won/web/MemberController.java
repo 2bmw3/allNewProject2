@@ -76,7 +76,6 @@ public class MemberController {
 	@GetMapping("/view")
 	public String view(int pno) throws Exception{
 		AdminVO vo = pservice.themaGet(pno);
-		System.out.println("++++++++");
 		String url = "/member/thema" + vo.getThema() + "/view?pno=" + pno + "&shopname=" + vo.getShopname();
 		return "redirect:"+url;
 	}
@@ -132,9 +131,9 @@ public class MemberController {
 	}
 
 	@GetMapping("/thema1/view")
-	public void thema1View(int pno, Model model, String shopname) throws Exception {
+	public void thema1View(int pno, Model model) throws Exception {
 		
-		String adminid = aservice.getAdminId(shopname);
+		String adminid = pservice.adminidGet(pno);
 		
 		model.addAttribute("shoplogo", aservice.shopTotal(adminid).get(0).getShoplogo());
 		model.addAttribute("view", pservice.read(pno));
@@ -236,9 +235,9 @@ public class MemberController {
 
 
 	@GetMapping("/thema2/view")
-	public void thema2View(int pno, Model model, String shopname) throws Exception {
+	public void thema2View(int pno, Model model) throws Exception {
 		
-		String adminid = aservice.getAdminId(shopname);
+		String adminid = pservice.adminidGet(pno);
 		
 		model.addAttribute("shoplogo", aservice.shopTotal(adminid).get(0).getShoplogo());
 		model.addAttribute("view", pservice.read(pno));
@@ -330,9 +329,10 @@ public class MemberController {
 	}
 
 	@GetMapping("/thema3/view")
-	public void thema3View(int pno, Model model, String shopname) throws Exception {
+	public void thema3View(int pno, Model model) throws Exception {
 		
-		String adminid = aservice.getAdminId(shopname);
+		String adminid = pservice.adminidGet(pno);
+		
 		model.addAttribute("shoplogo", aservice.shopTotal(adminid).get(0).getShoplogo());
 		model.addAttribute("view", pservice.read(pno));
 		model.addAttribute("review", bservice.reviewRead(pno));
@@ -392,9 +392,9 @@ public class MemberController {
 
 	// thema4 view
 	@GetMapping("/thema4/view")
-	public void thema4View(int pno, Model model, String shopname) throws Exception {
+	public void thema4View(int pno, Model model) throws Exception {
 		
-		String adminid = aservice.getAdminId(shopname);
+		String adminid = pservice.adminidGet(pno);
 		
 		model.addAttribute("shoplogo", aservice.shopTotal(adminid).get(0).getShoplogo());
 		model.addAttribute("view", pservice.read(pno));
