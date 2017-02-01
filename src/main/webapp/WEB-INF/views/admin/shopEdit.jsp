@@ -17,6 +17,7 @@
 				<div id="Title" class="tab-pane fade in active">
 					<h3>Title image</h3>
 					<button type="button" id='modify' class="btn btn-default" data-toggle="modal" data-target="#titleModal">Modify</button>
+					<button type="button" id='confirm' class="btn btn-primary">Confirm</button>
 					<br>
 					<img id='titleImg' src="${titleimg}" style="width: 400px; height: 400px;">
 				</div>
@@ -34,11 +35,11 @@
 			        <div class="modal-body">
 			          <input type="file" id='selectImg'>
 			          	<br>
-			        	<button id='selectImgBtn' type="button" class="btn btn-primary btn-xs" data-dismiss="modal" style="float: right;">Submit</button>
+			        	<button id='selectImgBtn' type="button" class="btn btn-primary btn-sm" data-dismiss="modal" style="float: right;">Submit</button>
 						<br>			        
 			        </div>
 			        <div class="modal-footer">
-			          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			          <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
 			        </div>
 			      </div>
 			      
@@ -78,6 +79,7 @@
 				+ s4() + s4();
 	}// end uuid create
 	
+	// title img upload
 	$("#selectImgBtn").on("click", function() {
 		var adminid = getCookie('username');
 		var titleImg = $("#titleImg");
@@ -108,7 +110,11 @@
 			});
             
         });
-	});
+	});	// title img upload end
+	
+	$("#confirm").on("click",function(){
+		window.open("/member/index", "_blank");
+	})
 
 </script>
 <%@include file="footer.jsp"%>
