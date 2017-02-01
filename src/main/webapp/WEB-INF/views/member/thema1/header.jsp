@@ -97,11 +97,10 @@
                      <!-- logo  -->
                      <div class="aa-logo">
                         <!-- Text based logo -->
-                        <a href="/member/thema1/index?shopname=${param.shopname}"> <span
-                           class="fa fa-shopping-cart"></span>
-                           <p>
-                              sm<strong>Shop</strong> <span>Your Shopping Partner</span>
-                           </p>
+                        <a href="/member/thema1/index?shopname=${param.shopname}" >
+                        	<img style = 'width: 120px;height:90px; float:left;' 
+                        	src='https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shoplogo%2F${shoplogo}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e'>
+<%--                         	<p  style = 'float:left;'>${shopname}</p> --%>
                         </a>
                      </div>
                      <!-- / logo  -->
