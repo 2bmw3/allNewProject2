@@ -9,6 +9,22 @@
 <link rel="stylesheet" href="/resources/admin/css/register.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+<script language="javascript">
+function goPopup(){
+	// 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(http://www.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
+    var pop = window.open("/jusoPopup","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
+}
+function jusoCallBack(roadAddrPart1,addrDetail,roadAddrPart2, zipNo){
+	// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.
+
+	document.getElementById('roadAddrPart1').value = roadAddrPart1;
+	document.getElementById('roadAddrPart2').value = roadAddrPart2;
+	document.getElementById('addrDetail').value = addrDetail;
+	document.getElementById('zipNo').value = zipNo;
+	
+	document.getElementById('uaddress').value = zipNo + "\t" + roadAddrPart1 + "\t" + addrDetail;
+}
+</script>
 <body>
 
 <form id="msform" method="post" action="/memberRegisterAction">
@@ -30,7 +46,15 @@
 	<fieldset>
 		<h2 class="fs-title">Info</h2>
 		<h3 class="fs-subtitle">please write</h3>
-		<input type="text" name="uaddress" placeholder="Address" /> 
+		<input type="hidden" name="uaddress" id="uaddress" placeholder="Address" /> 
+		<div name="form" id="addForm">
+			    <input type="hidden" id="confmKey" name="confmKey" value="">
+				<input type="text" id="zipNo" name="zipNo" readonly placeholder="우편번호">
+				<input type="button"  value="주소검색" onclick="goPopup();">
+				<input type="text" id="roadAddrPart1" placeholder="도로명주소">
+				<input type="text" id="addrDetail" style="width: 50%; float:left;" value="" placeholder="상세주소1">
+				<input type="text" id="roadAddrPart2" style="width: 50%;" value="" placeholder="상세주소2">
+		</div>
 		<input type="email" name="uemail" placeholder="Email" /> 
 		<input type="date" name="ubirth" placeholder="Birth" /> 
 		<select name="ugender">

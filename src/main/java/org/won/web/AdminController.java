@@ -280,12 +280,15 @@ public class AdminController {
 		int totalData = pservice.total(username);
 		PageingUtil pageing = new PageingUtil(totalData, pageNum);
 		ProductsVO vo = new ProductsVO();
+		
 		int page = (pageNum - 1) * 9;
 		vo.setPage(page);
 		int colorCnt = 0;
 		int sizeCnt = 0;
 		List<Integer> colorList = new ArrayList<>();
 		List<Integer> sizeList = new ArrayList<>();
+		String[] addressArr = service.shopTotal(username).get(0).getAaddress().split("\t");
+		String address = addressArr[1] + " " + addressArr[2];  
 		
 		vo.setAdminid(username);
 		model.addAttribute("list", pservice.list(vo));
@@ -293,7 +296,7 @@ public class AdminController {
 		model.addAttribute("shoplogo", service.shopTotal(username).get(0).getShoplogo());
 		model.addAttribute("shopname", service.shopTotal(username).get(0).getShopname());
 		model.addAttribute("phonenumber", service.shopTotal(username).get(0).getAphonenumber());
-		model.addAttribute("shopaddress", service.shopTotal(username).get(0).getAaddress());
+		model.addAttribute("shopaddress", address);
 		model.addAttribute("total", totalData);
 		model.addAttribute("pageNum", pageNum);
 		
