@@ -76,9 +76,9 @@
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
                 	<i class="fa fa-truck"></i> 
-                	<span id="count" class="label label-success">0</span>
+                	<span id="orderCount" class="label label-success">0</span>
                 </a>
-                <ul style="overflow:scroll; width:350px; height:500px;" class="dropdown-menu dropdown-messages" >
+                <ul style="overflow:scroll; width:350px; height:500px;" class="dropdown-menu dropdown-messages" id="orderDropdown">
 
                 </ul>
             </li>

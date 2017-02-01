@@ -64,7 +64,7 @@ public class AdminController {
 
 	// 주문 관리 page
 	@GetMapping("/order")
-	public void adminOrder(String adminid, Model model,HttpServletRequest request) throws Exception {
+	public void adminOrder(Model model,HttpServletRequest request) throws Exception {
 		
 		String username = cookieUtil.cookieUtil(request);
 		model.addAttribute("adminOrder", oservice.adminOrderRead(username));
@@ -76,7 +76,7 @@ public class AdminController {
 	}
 
 	@GetMapping("/orderList")
-	public void adminOrderList(String adminid, Model model,HttpServletRequest request) throws Exception {
+	public void adminOrderList(Model model,HttpServletRequest request) throws Exception {
 		String username = cookieUtil.cookieUtil(request);
 		model.addAttribute("adminOrder", oservice.adminOrderList(username));
 	}
@@ -241,6 +241,12 @@ public class AdminController {
 	public @ResponseBody List<QuestionVO> latter(String adminid) throws Exception {
 		return service.latter(adminid);
 	}
+	
+	@PostMapping("/orderLatter")
+	public @ResponseBody List<OrderVO> orderLatter(String adminid) throws Exception {
+		return oservice.adminOrderRead(adminid);
+	}
+	
 	
 	@PostMapping("/qnaCount")
 	public @ResponseBody int qnaCount(String adminid) throws Exception {

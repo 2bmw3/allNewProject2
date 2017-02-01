@@ -247,14 +247,26 @@
 </section>
 <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
 	<script>
-	
-	var ccnt = null;
-	var color = null;
-	var pno = ${view[0].pno};
-	var size = null;
-	var adminid = "${view[0].adminid}";
-	var emptyReview = $('#emptyReview');
-	var userid = "testUser";
+	function getCookie(cname) {
+		   var name = cname + "=";
+		   var cookie = document.cookie.split(';');
+		   for (var i = 0; i < cookie.length; i++) {
+		      var value = cookie[i].trim();
+		      if (value.indexOf(name) == 0) {
+		         return value.substring(name.length,
+		               value.length);
+		      }
+		   }
+		   return "";
+		}
+
+		var ccnt = null;
+		var color = null;
+		var pno = ${view[0].pno};
+		var size = null;
+		var adminid = "${view[0].adminid}";
+		var emptyReview = $('#emptyReview');
+	    var userid = getCookie('userid'); 
 		
 	console.log($('.showReview').length);
 	if($('.showReview').length > 0){
@@ -293,6 +305,18 @@
 	/* 리뷰 버튼 이벤트 시작  */ 
 	$('#reviewBtn').on('click', function () {
 		event.preventDefault();
+		if(userid == ''){
+		       swal({
+	                title: "로그인을 해주세요.",
+	                text: "",
+	                type: "error",
+	                timer: 1000,
+	                showConfirmButton: false
+	            });  
+			
+		}else{
+       
+		
 		var rcontent = $('#reContent')[0].value;
 		var rphoto = $('#rePhoto');
 		var rgrade = $('[name="star-input"]:checked').val();
@@ -308,6 +332,7 @@
 		var formData = {"rcontent":rcontent, "pno":pno, "userid":userid,"rgrade":rgrade, "rphoto":rphoto.val()};
 		
 		console.log(formData);
+		
 		
 		 $.ajax({      
 		    	url: "/review", 
@@ -343,7 +368,8 @@
 	        	}
 		    }); 
 		    //ajax end
-	});
+		}
+		});
 	/* 리뷰 버튼 이벤트 끝! */
 	
 	

@@ -61,8 +61,8 @@ ul.cart-header li{
                               <i class="material-icons">home</i>
                            </c:when>
                         </c:choose></span></li>
-                         <li><span><input type="hidden" value='${vo.odno}' id="odno"> <a
-                         id="out" style="cursor: pointer">Arrival of goods</a></span></li>
+                         <li  id="out"><span><input type="hidden" value='${vo.odno}' id="odno"> <a
+                         style="cursor: pointer">Arrival of goods</a></span></li>
                          
                   <div class="clearfix"></div>
                </ul>             
@@ -93,6 +93,8 @@ ul.cart-header li{
 </div> -->
 <script>
 $(document).on("click",'#out', function() {
+    var odno = $(this)[0].childNodes[0].childNodes[0].value; 
+    console.log(odno);
     swal({
        title : "잘받으셨나요?",
        text : "기다리기 힘드셨죠",
@@ -103,20 +105,20 @@ $(document).on("click",'#out', function() {
        cancelButtonText : "취소",
        closeOnConfirm : false
     }, function() {
+    	
        swal("감사합니다", "자주 만나요", "success");
-       var odno = $("#odno").val();
-
        $.ajax({
           url : "/member/memberOrderAction",
-          data : "odno=" + odno,
+          data :  {"odno":odno},
           dataType : "JSON",
           type : "post",
-          complete : $("#" + odno).detach()
-
+          complete:  $("#" + odno).remove()
        });//end  Ajax
+      
+
     });
  });
-</script>
+ </script>
 
 <%@include file="footer.jsp"%>
 </body>

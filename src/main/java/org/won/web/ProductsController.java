@@ -150,13 +150,12 @@ public class ProductsController {
 	}
 
 	@PostMapping("/review")
-	public @ResponseBody String review(ReviewVO rvo) throws Exception {
-		rvo.setUserid("testUser");
+	public @ResponseBody String review(ReviewVO rvo,HttpServletRequest request) throws Exception {
+		rvo.setUserid(cookieUtil.cookieUtil(request,"userid"));
 		bservice.rCreate(rvo);
 		String rno = bservice.reviewRead(rvo.getPno()).get(0).getRno()+"#";
 		String date = bservice.reviewRead(rvo.getPno()).get(0).getRregdate().toString();
 		String result = rno + date;
-		logger.info("result... : " + result);
 		// 스플릿해서
 		return result;
 	}
@@ -167,14 +166,15 @@ public class ProductsController {
 		String result = "F#";
 		String adminid = service.adminidGet(pno);
 		
-		if(adminid != ""){
+		if(adminid != null){
 			String shopName = service.allListSearch(adminid).getShopname() +"#";
 			String thema = service.allListSearch(adminid).getThema();
-			result += shopName + thema;
+			result = "T#" + shopName + thema;
 		}
 		
 		return result;
 	}
+	
 	@GetMapping("/jusoPopup")
 	public void getJusoPopup(){}
 	

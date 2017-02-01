@@ -27,13 +27,13 @@
                   <div class="col-md-1">${vo.ocnt}</div>
                   <div class="col-md-2">${vo.oaddress}</div>
                   <div class="col-md-1">￦${vo.price * vo.ocnt}</div>
-                  <div class="col-md-1">
+                  <div class="col-md-1" id="out">
             
                      <input type="hidden" value='${vo.odno}' id="odno"> <i
-                        class="material-icons" id="out" style="cursor: pointer">local_shipping</i>
+                        class="material-icons"  style="cursor: pointer">local_shipping</i>
                   </div>
                </div>
-               <hr />
+               <hr>
             </c:forEach>
          </div>
          <!-- order end -->

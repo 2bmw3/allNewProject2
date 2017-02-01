@@ -105,7 +105,8 @@
 				<c:if test="${'[null]' ne list}">
 					<c:forEach items="${list}" var="vo">
 						<figure class="white" style='min-height: 430px; max-height: 430px;'> 
-						<a href="thema${vo.thema}/view?shopname=${vo.shopname}&pno=${vo.pno}&jspName=/${actionName}&sType=${sType}&keyword=${keyword}" onclick="window.open(this.href); self.location.href='list';"> 
+							<a class='targetImg' href="#"> 
+							<input type="hidden" value="thema${vo.thema}/view?shopname=${vo.shopname}&pno=${vo.pno}&jspName=/${actionName}&sType=${sType}&keyword=${keyword}">
 						<img style='max-width: 300px;min-height:300px;max-height: 300px;'
 							src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e" alt="" />
 							<dl>
@@ -128,17 +129,6 @@
 		</div>
 		
 
-		<div id="wrapper-oldnew">
-			<div class="oldnew">
-				<div class="wrapper-oldnew-prev">
-					<div id="oldnew-prev"></div>
-				</div>
-				<div class="wrapper-oldnew-next">
-					<div id="oldnew-next"></div>
-				</div>
-			</div>
-		</div>
-
 		<div id="wrapper-copyright">
 			<div class="copyright">
 				<div class="copy-text object">
@@ -151,23 +141,15 @@
 
 
 
-	<!-- SCRIPT -->
-	<script
-		src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script type="text/javascript"
-		src="/resources/member/allList/js/jquery.scrollTo.min.js"></script>
-	<script type="text/javascript"
-		src="/resources/member/allList/js/jquery.localScroll.min.js"></script>
-	<script type="text/javascript"
-		src="/resources/member/allList/js/jquery-animate-css-rotate-scale.js"></script>
-	<script type="text/javascript"
-		src="/resources/member/allList/js/fastclick.min.js"></script>
-	<script type="text/javascript"
-		src="/resources/member/allList/js/jquery.animate-colors-min.js"></script>
-	<script type="text/javascript"
-		src="/resources/member/allList/js/jquery.animate-shadow-min.js"></script>
-	<script type="text/javascript"
-		src="/resources/member/allList/js/alllistmain.js"></script>
+<!-- SCRIPT -->
+<script	src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript"	src="/resources/member/allList/js/jquery.scrollTo.min.js"></script>
+<script type="text/javascript"	src="/resources/member/allList/js/jquery.localScroll.min.js"></script>
+<script type="text/javascript"	src="/resources/member/allList/js/jquery-animate-css-rotate-scale.js"></script>
+<script type="text/javascript"	src="/resources/member/allList/js/fastclick.min.js"></script>
+<script type="text/javascript"	src="/resources/member/allList/js/jquery.animate-colors-min.js"></script>
+<script type="text/javascript"	src="/resources/member/allList/js/jquery.animate-shadow-min.js"></script>
+<script type="text/javascript"	src="/resources/member/allList/js/alllistmain.js"></script>
 <script src="http://t4t5.github.io/sweetalert/dist/sweetalert.min.js"></script>
 <script>
 	$("#tip_search_input").on("keydown",function(key){
@@ -182,11 +164,31 @@
 				dataType : 'text',
 				type : "post",
 				success : function(result) {
-					swal(result);
+					var splitResult = result.split("#");
+					if(splitResult[0] == "T"){
+						 swal({
+		                        title: "해당 상품으로 이동합니다.",
+		                        text:  "",
+		                        type: "success",
+		                        timer: 2000,
+		                        showConfirmButton: false
+		                    });
+		                    setTimeout(() => {
+		                    	window.open("thema"+splitResult[2]+"/view?shopname="+splitResult[1]+"&pno="+searchValue, "_blank");
+		                }, 1500);
+					}else{
+						swal("해당 상품이 없습니다!","","error");
+					}
 				}// end success
 			});// end ajax
 			
 		}
+	});
+	
+	$(".targetImg").on("click",function(event){
+		event.preventDefault();
+		var href =  $(this)[0].firstElementChild.defaultValue;
+		window.open(href, "_blank");
 	});
 </script>
 </body>
