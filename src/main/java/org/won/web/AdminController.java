@@ -270,7 +270,7 @@ public class AdminController {
 		return testPno;
 	}
 
-	// admin card 제작
+	// admin card 제작!
 	@GetMapping("/cardEdit")
 	public void cardEdit(int pageNum, Model model, HttpServletRequest request) throws Exception {
 
