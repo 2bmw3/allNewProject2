@@ -31,6 +31,7 @@ import org.won.domain.PphotosVO;
 import org.won.domain.ProductsVO;
 import org.won.domain.QuestionVO;
 import org.won.domain.SearchVO;
+import org.won.domain.ShopimgVO;
 import org.won.service.AdminService;
 import org.won.service.BoardService;
 import org.won.service.OrderService;
@@ -53,18 +54,17 @@ public class AdminController {
 
 	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
 	private CookieUtil cookieUtil = new CookieUtil();
-	
+
 	// admin 전용 첫 화면
 	@GetMapping("/index")
 	public void adminIndex() {
 
 	}
-	
 
 	// 주문 관리 page
 	@GetMapping("/order")
-	public void adminOrder(Model model,HttpServletRequest request) throws Exception {
-		
+	public void adminOrder(Model model, HttpServletRequest request) throws Exception {
+
 		String username = cookieUtil.cookieUtil(request);
 		model.addAttribute("adminOrder", oservice.adminOrderRead(username));
 	}
@@ -75,13 +75,13 @@ public class AdminController {
 	}
 
 	@GetMapping("/orderList")
-	public void adminOrderList(Model model,HttpServletRequest request) throws Exception {
+	public void adminOrderList(Model model, HttpServletRequest request) throws Exception {
 		String username = cookieUtil.cookieUtil(request);
 		model.addAttribute("adminOrder", oservice.adminOrderList(username));
 	}
 
 	@GetMapping("/orderMoreList")
-	public @ResponseBody List<OrderVO> moreList(int page, Model model,HttpServletRequest request) throws Exception {
+	public @ResponseBody List<OrderVO> moreList(int page, Model model, HttpServletRequest request) throws Exception {
 
 		OrderVO vo = new OrderVO();
 		int pageNum = page * 5;
@@ -93,7 +93,7 @@ public class AdminController {
 
 	// admin 전용 list --> 본인 상품
 	@GetMapping("/list")
-	public void adminList(int pageNum, Model model,HttpServletRequest request) throws Exception {
+	public void adminList(int pageNum, Model model, HttpServletRequest request) throws Exception {
 		String username = cookieUtil.cookieUtil(request);
 		int totalData = pservice.total(username);
 		PageingUtil pageing = new PageingUtil(totalData, pageNum);
@@ -119,7 +119,8 @@ public class AdminController {
 
 	// search
 	@GetMapping("/adminListSearch")
-	public String listSearch(int pageNum, Model model, String sType, String keyword,HttpServletRequest request)throws Exception {
+	public String listSearch(int pageNum, Model model, String sType, String keyword, HttpServletRequest request)
+			throws Exception {
 		SearchVO search = new SearchVO(sType, keyword);
 		int searchTotalData = pservice.searchTotal(search);
 		int page = (pageNum - 1) * 9;
@@ -140,7 +141,7 @@ public class AdminController {
 	}
 
 	@GetMapping("/listSearchAction")
-	public String listSearchAction(Model model, String sType, String keyword,HttpServletRequest request)
+	public String listSearchAction(Model model, String sType, String keyword, HttpServletRequest request)
 			throws Exception {
 		SearchVO search = new SearchVO(sType, keyword);
 		String username = cookieUtil.cookieUtil(request);
@@ -164,7 +165,7 @@ public class AdminController {
 
 	// admin 전용 category --> 본인 상품의 category
 	@GetMapping("/categoryList")
-	public void adminCategoryList(ProductsVO pvo, Model model,HttpServletRequest request) throws Exception {
+	public void adminCategoryList(ProductsVO pvo, Model model, HttpServletRequest request) throws Exception {
 		PageingUtil pageing = new PageingUtil(service.categorySearchTotal(pvo), pvo.getPage());
 		int categoryTotalData = service.categorySearchTotal(pvo);
 		pvo.setPage((pvo.getPage() - 1) * 9);
@@ -180,8 +181,8 @@ public class AdminController {
 
 	// admin 전용 category --> 기본적으로 여기를 들어와서 데이터토탈값과 페이지1로 이동시킴
 	@GetMapping("/categoryListAction")
-	public String adminCategoryListAction(ProductsVO pvo, Model model,HttpServletRequest request) throws Exception {
-		
+	public String adminCategoryListAction(ProductsVO pvo, Model model, HttpServletRequest request) throws Exception {
+
 		String username = cookieUtil.cookieUtil(request);
 		pvo.setAdminid(username);
 		String pkind = URLEncoder.encode(pvo.getPkind(), "UTF-8"); // 한글을 리다이렉트
@@ -240,20 +241,18 @@ public class AdminController {
 	public @ResponseBody List<QuestionVO> latter(String adminid) throws Exception {
 		return service.latter(adminid);
 	}
-	
+
 	@PostMapping("/orderLatter")
 	public @ResponseBody List<OrderVO> orderLatter(String adminid) throws Exception {
 		return oservice.adminOrderRead(adminid);
 	}
-	
-	
+
 	@PostMapping("/qnaCount")
 	public @ResponseBody int qnaCount(String adminid) throws Exception {
 		int qnaCount = service.latter(adminid).size();
 		return qnaCount;
 	}
-	
-	
+
 	@PostMapping("/webcamUpload")
 	public @ResponseBody String slip(String base64) throws Exception {
 
@@ -261,7 +260,7 @@ public class AdminController {
 		byte[] imageBytes = DatatypeConverter.parseBase64Binary(data);
 
 		UUID uid = UUID.randomUUID();
-//		String name = uid + ".png";
+		// String name = uid + ".png";
 		String name = "test.png";
 
 		BufferedImage bufImg = ImageIO.read(new ByteArrayInputStream(imageBytes));
@@ -270,16 +269,16 @@ public class AdminController {
 		String testPno = "273";
 		return testPno;
 	}
-	
-	//admin card 제작
+
+	// admin card 제작
 	@GetMapping("/cardEdit")
-	public void cardEdit(int pageNum,Model model,HttpServletRequest request) throws Exception {
-	
+	public void cardEdit(int pageNum, Model model, HttpServletRequest request) throws Exception {
+
 		String username = cookieUtil.cookieUtil(request);
 		int totalData = pservice.total(username);
 		PageingUtil pageing = new PageingUtil(totalData, pageNum);
 		ProductsVO vo = new ProductsVO();
-		
+
 		int page = (pageNum - 1) * 9;
 		vo.setPage(page);
 		int colorCnt = 0;
@@ -287,8 +286,8 @@ public class AdminController {
 		List<Integer> colorList = new ArrayList<>();
 		List<Integer> sizeList = new ArrayList<>();
 		String[] addressArr = service.shopTotal(username).get(0).getAaddress().split("\t");
-		String address = addressArr[1] + " " + addressArr[2];  
-		
+		String address = addressArr[1] + " " + addressArr[2];
+
 		vo.setAdminid(username);
 		model.addAttribute("list", pservice.list(vo));
 		model.addAttribute("page", pageing);
@@ -298,14 +297,13 @@ public class AdminController {
 		model.addAttribute("shopaddress", address);
 		model.addAttribute("total", totalData);
 		model.addAttribute("pageNum", pageNum);
-		
-		
-		for(int i = 0 ; i < pservice.list(vo).size() ; i++){
+
+		for (int i = 0; i < pservice.list(vo).size(); i++) {
 			vo.setPno(pservice.list(vo).get(i).getPno());
-			
+
 			colorCnt = 0;
 			sizeCnt = 0;
-			for(int j = 0 ; j < service.infoEdit(vo).size() ; j++){
+			for (int j = 0; j < service.infoEdit(vo).size(); j++) {
 				colorCnt += Integer.parseInt(service.infoEdit(vo).get(j).getPicolor());
 				sizeCnt += Integer.parseInt(service.infoEdit(vo).get(j).getPisize());
 			}
@@ -314,30 +312,37 @@ public class AdminController {
 		}
 		model.addAttribute("colorCnt", colorList);
 		model.addAttribute("sizeCnt", sizeList);
-		
+
 	}
-	
+
 	@PostMapping("/shopName")
-	public @ResponseBody String shopName(String adminid) throws Exception{
+	public @ResponseBody String shopName(String adminid) throws Exception {
 		String shopThema = service.shopTotal(adminid).get(0).getThema();
 		String shopName = URLEncoder.encode(service.shopTotal(adminid).get(0).getShopname(), "UTF-8");
 		String adminShopURL = "/member/thema" + shopThema + "/index?shopname=" + shopName;
 		return adminShopURL;
 	}
-	
+
 	@GetMapping("/shopEdit")
-	public void shopEdit(HttpServletRequest request, Model model) throws Exception{
+	public void shopEdit(HttpServletRequest request, Model model) throws Exception {
 		String adminid = cookieUtil.cookieUtil(request);
 		String titleimg = pservice.allListSearch(adminid).getTitleimg();
 		model.addAttribute("titleimg", titleimg);
+		model.addAttribute("banner", service.bannerList(adminid));
 	}
-	
-	//titleImg edit
+
+	// titleImg edit
 	@PostMapping("/titleImgUpdate")
 	public @ResponseBody String titleImgUpdate(AdminVO vo) throws Exception {
 		service.titleImgUpdate(vo);
 		return "success";
 	}
-	
-	
+
+	// banner edit
+	@PostMapping("/bannerImgUpdate")
+	public @ResponseBody String bannerImgUpdate(ShopimgVO vo) throws Exception {
+		service.bannerUpdate(vo);
+		return "success";
+	}
+
 }

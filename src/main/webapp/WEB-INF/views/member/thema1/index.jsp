@@ -9,17 +9,17 @@
     <div class="aa-slider-area">
         <div id="sequence" class="seq">
             <ul class="seq-canvas">
-<%-- 				<c:forEach items="${bannerImg}" var="vo" varStatus="status">  --%>
+			<c:forEach items="${banner}" var="vo">
                 <!-- single slide item -->
 	                <li>
 	                    <div class="seq-model"> 
 	                    <!-- slider banner ::: 1920 x 700 -->
 	                        <img style = 'width : 100%; height : 700px;' 
-	                        	data-seq src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shopimg%2Fthema1_banner1.jpg?alt=media&token=8c30ca10-01e5-42b7-b3dc-5b2269408bee"/>
+	                        	data-seq src="${vo.bannerstr}"/>
 	                    </div>
 	                </li>
                  <!-- single slide item end-->
-<%--                </c:forEach> --%>
+               </c:forEach>
             </ul>
         </div>
     </div>
@@ -93,7 +93,8 @@
                          <!-- promo right -->
                         
                     </div>
-                </div>
+                </div>\
+                
             </div>
         </div>
     </div>

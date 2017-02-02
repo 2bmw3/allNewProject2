@@ -12,8 +12,9 @@
 				<div class="flexslider animate-box">
 					<ul class="slides">
 					
+					<c:forEach items="${banner}" var="vo">
 						<li
-							style="background-image: url(https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shopimg%2Fthema3_banner1.jpg?alt=media&token=9a668f32-acb2-45c4-8ed3-ee372dce9fcd);">
+							style="background-image: url(${vo.bannerstr});">
 							<div class="overlay-gradient"></div>
 							<div class="container-fluid">
 								<div class="row">
@@ -30,25 +31,7 @@
 								</div>
 							</div>
 						</li>
-						
-						<li
-							style="background-image: url(https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shopimg%2Fthema3_banner2.jpg?alt=media&token=9a668f32-acb2-45c4-8ed3-ee372dce9fcd);">
-							<div class="overlay-gradient"></div>
-							<div class="container-fluid">
-								<div class="row">
-									<div class="col-md-10 col-md-offset-1 slider-text">
-										<div class="slider-text-inner">
-											<h1>Best Item</h1>
-											<h2>Fashion is not frivolous. It is a part of being
-												alive today</h2>
-											<p class="ct">
-												<a href="#">Buy Now <i class="icon-arrow-right"></i></a>
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</li>
+					</c:forEach>
 						
 						
 					</ul>

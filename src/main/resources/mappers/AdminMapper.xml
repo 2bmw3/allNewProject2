@@ -61,5 +61,18 @@
 	<update id="titleImgUpdate" parameterType="AdminVO">
 		update tbl_admin set titleimg = #{titleimg} where adminid = #{adminid}
 	</update>
+	
+	<insert id="defaultBanner" parameterType="ShopimgVO">
+		insert into tbl_shopimg(adminid, banner, bannersize )
+		values(#{adminid}, #{bannerstr}, #{bannersize})
+	</insert>
+	
+	<select id="bannerList" resultType="ShopimgVO">
+		select banner bannerstr, bannersize from tbl_shopimg where adminid = #{adminid}
+	</select>
+	
+	<update id="bannerUpdate" parameterType="ShopimgVO">
+		update tbl_shopimg set banner= #{bannerstr} where adminid = #{adminid} and banner = #{exsrc}
+	</update>
 
 </mapper>

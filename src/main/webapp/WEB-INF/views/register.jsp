@@ -67,6 +67,8 @@ function jusoCallBack(roadAddrPart1,addrDetail,roadAddrPart2, zipNo){
 		<h5>Shop logo</h5>
 		<input type="file" id="logoImg" /> 
 		<input type="hidden" id="logoImgName" name="shoplogo">
+		<input type="hidden" id='banner' name='banner'>
+		<input type="hidden" id='bannersize' name='bannersize'>
 		<input type="button" name="previous" class="previous action-button" value="Previous" /> 
 		<input type="button" id='secondNextBtn' name="next" class="next action-button" value="Next" />
 	</fieldset>
@@ -104,7 +106,37 @@ function jusoCallBack(roadAddrPart1,addrDetail,roadAddrPart2, zipNo){
 
 	// id 중복체크 여부 확인
 	var idCheckResult = "F";
-
+	
+	// thema1Banner
+	var thema1Banner = [
+		'https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shopimg%2Fthema1_banner1.jpg?alt=media&token=8c30ca10-01e5-42b7-b3dc-5b2269408bee',
+		'https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shopimg%2Fthema1_banner2.jpg?alt=media&token=93a26d0e-7f91-4284-8720-f4f286d1c21e',
+		'https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shopimg%2Fthema1_banner3.jpg?alt=media&token=8270243e-9cee-471a-bec9-8d8991e60e9f',
+		'https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shopimg%2Fthema1_banner4.jpg?alt=media&token=39515352-503d-4fac-8778-4314d90c09eb'
+	];
+	// thema1BannerSize
+	var thema1BannerSize = '1920 x 700';
+	
+	// thema2Banner
+	var thema2Banner = [
+		'https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shopimg%2Fthema2_banner1.jpg?alt=media&token=8c30ca10-01e5-42b7-b3dc-5b2269408bee',
+		'https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shopimg%2Fthema2_banner2.jpg?alt=media&token=93a26d0e-7f91-4284-8720-f4f286d1c21e',
+		'https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shopimg%2Fthema2_banner3.jpg?alt=media&token=8270243e-9cee-471a-bec9-8d8991e60e9f',
+		'https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shopimg%2Fthema2_banner4.jpg?alt=media&token=39515352-503d-4fac-8778-4314d90c09eb'
+	];
+	// thema2BannerSize
+	var thema2BannerSize = '1600 x 800';
+	
+	// thema3Banner
+	var thema3Banner = [
+		'https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shopimg%2Fthema3_banner1.jpg?alt=media&token=8c30ca10-01e5-42b7-b3dc-5b2269408bee',
+		'https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shopimg%2Fthema3_banner2.jpg?alt=media&token=93a26d0e-7f91-4284-8720-f4f286d1c21e',
+		'https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shopimg%2Fthema3_banner3.jpg?alt=media&token=8270243e-9cee-471a-bec9-8d8991e60e9f'
+	];
+	// thema3BannerSize
+	var thema3BannerSize = '700 x 525';
+	
+	
 	/* for firebase upload */
 	var config = {
 		apiKey : "AIzaSyCCPgBU1lxPq7PVclQyoN5lUX3nFgtXClQ",
@@ -175,6 +207,18 @@ function jusoCallBack(roadAddrPart1,addrDetail,roadAddrPart2, zipNo){
 			}
 		});
 		$("#thema").val(themaNumber);
+		if ( themaNumber == '1'){
+			$("#banner").val(thema1Banner);
+			$("#bannersize").val(thema1BannerSize);
+		} else if ( themaNumber == '2'){
+			$("#banner").val(thema2Banner);
+			$("#bannersize").val(thema2BannerSize);
+		} else {
+			$("#banner").val(thema3Banner);
+			$("#bannersize").val(thema3BannerSize);
+		}
+		
+		console.log($("#banner"));
 		var titleImgURL = "https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/titleimg%2Findex"
 							+ themaNumber + ".png?alt=media&token=0fed3241-3d4b-496d-9cf9-75ef18af1beb";
 		$("#titleimg").val(titleImgURL);

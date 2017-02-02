@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.won.domain.AdminVO;
 import org.won.domain.MemberVO;
+import org.won.domain.ShopimgVO;
 import org.won.service.AdminService;
 import org.won.service.MemberService;
 
@@ -48,12 +49,13 @@ public class LoginController {
 	}
 
 	@PostMapping("/registerAction")
-	public String registerAction(AdminVO vo) throws Exception {
-
+	public String registerAction(AdminVO vo, ShopimgVO svo) throws Exception {
+		
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		String encodeAdminpw = passwordEncoder.encode(vo.getAdminpw());
 		vo.setAdminpw(encodeAdminpw);
 		service.create(vo);
+		service.defaultBanner(svo);
 		return "redirect:/login";
 	}
 

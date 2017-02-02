@@ -9,6 +9,7 @@ import org.won.domain.AdminVO;
 import org.won.domain.PinfoVO;
 import org.won.domain.ProductsVO;
 import org.won.domain.QuestionVO;
+import org.won.domain.ShopimgVO;
 import org.won.persistence.AdminDAO;
 
 @Service
@@ -40,10 +41,10 @@ public class AdminServiceImpl implements AdminService {
 
 		return dao.shopTotal(adminid);
 	}
-	
+
 	@Override
-	public List<PinfoVO> infoEdit(ProductsVO pvo) throws Exception{
-		
+	public List<PinfoVO> infoEdit(ProductsVO pvo) throws Exception {
+
 		return dao.infoEdit(pvo);
 	}
 
@@ -76,5 +77,28 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public void titleImgUpdate(AdminVO vo) throws Exception {
 		dao.titleImgUpdate(vo);
+	}
+
+	@Override
+	public void defaultBanner(ShopimgVO vo) throws Exception {
+		
+		for (int i = 0; i < vo.getBanner().size(); i++) {
+			ShopimgVO svo = new ShopimgVO();
+			svo.setAdminid(vo.getAdminid());
+			svo.setBannerstr(vo.getBanner().get(i));
+			svo.setBannersize(vo.getBannersize());
+
+			dao.defaultBanner(svo);
+		}
+	}
+
+	@Override
+	public List<ShopimgVO> bannerList(String adminid) throws Exception {
+		return dao.bannerList(adminid);
+	}
+
+	@Override
+	public void bannerUpdate(ShopimgVO vo) throws Exception {
+		dao.bannerUpdate(vo);
 	}
 }

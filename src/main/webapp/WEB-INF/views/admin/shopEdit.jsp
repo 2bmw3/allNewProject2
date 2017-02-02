@@ -14,6 +14,7 @@
 			</ul>
 
 			<div class="tab-content">
+			
 				<div id="Title" class="tab-pane fade in active">
 					<h3>Title image</h3>
 					<button type="button" id='modify' class="btn btn-default" data-toggle="modal" data-target="#titleModal">Modify</button>
@@ -22,7 +23,7 @@
 					<img id='titleImg' src="${titleimg}" style="width: 400px; height: 400px;">
 				</div>
 				
-				<!-- Modal -->
+			<!-- Modal -->
 			  <div class="modal fade" id="titleModal" role="dialog">
 			    <div class="modal-dialog">
 			    
@@ -45,16 +46,50 @@
 			      
 			    </div>
 			  </div>
-				
+			<!-- Modal end-->
+			
+			
 				<div id="Banner" class="tab-pane fade">
-					<h3>Banner image</h3>
+					<h3>Banner image (Click!)</h3>
+					<h4><b>Standard Image Size :</b> ${banner[0].bannersize}</h4>
+					<c:forEach items="${banner}" var="vo">
+						<img class='bannerImg' src="${vo.bannerstr}" style="width: 150px; height: 150px; float: left; margin: 5px; cursor: pointer;"
+							data-toggle="modal" data-target="#bannerModal">
+					</c:forEach>
 				</div>
+				
+			<!-- Modal -->
+			  <div class="modal fade" id="bannerModal" role="dialog">
+			    <div class="modal-dialog">
+			    
+			      <!-- Modal content-->
+			      <div class="modal-content">
+			        <div class="modal-header">
+			          <button type="button" class="close" data-dismiss="modal">&times;</button>
+			          <h4 class="modal-title">Banner image change</h4>
+			        </div>
+			        <div class="modal-body">
+			          <input type="file" id='bannerImg'>
+			          	<br>
+			        	<button id='bannerImgBtn' type="button" class="btn btn-primary btn-sm" data-dismiss="modal" style="float: right;">Submit</button>
+						<br>			        
+			        </div>
+			        <div class="modal-footer">
+			          <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+			        </div>
+			      </div>
+			      
+			    </div>
+			  </div>
+		  <!-- Modal end-->
 				
 			</div>
 		</div>
 	</div>
 </div>
 <script>
+	var targetBanner = "";
+
 	/* for firebase upload */
 	var config = {
 		apiKey : "AIzaSyCCPgBU1lxPq7PVclQyoN5lUX3nFgtXClQ",
@@ -114,7 +149,47 @@
 	
 	$("#confirm").on("click",function(){
 		window.open("/member/index", "_blank");
-	})
+	});
+	
+	// get bannerImg src
+	$(".bannerImg").on("click", function() {
+		targetBanner = $(this);
+	});// bannerImg end
+	
+	// banner img upload
+	$("#bannerImgBtn").on("click", function() {
+		var adminid = getCookie('username');
+		var bannerImg = $("#bannerImg");
+		var file= bannerImg[0].files[0];
+		var uuidFileName = guid() + "_" + file.name;
+		
+		var upload = storage.ref().child("shopimg/" +uuidFileName);
+        var uploadTask = upload.put(file);
+
+        uploadTask.on('state_changed', function(snapshot){
+        }, function(error) {
+        }, function() {
+            var downloadURL = uploadTask.snapshot.downloadURL;
+            var exsrc = $(targetBanner)[0].src;
+			var data = {"bannerstr":downloadURL, "adminid": adminid, "exsrc": exsrc };
+            $(targetBanner)[0].src = downloadURL;
+            bannerImg[0].value = "";
+			
+			$.ajax({
+				url : "bannerImgUpdate",
+				data : data,
+				dataType : 'text',
+				type : "post",
+				success : function(result) {
+					swal(result,"","success");
+				}
+			});
+            
+        });
+		
+		
+		
+	});	// banner img upload end
 
 </script>
 <%@include file="footer.jsp"%>

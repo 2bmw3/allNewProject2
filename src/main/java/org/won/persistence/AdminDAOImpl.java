@@ -10,6 +10,7 @@ import org.won.domain.AdminVO;
 import org.won.domain.PinfoVO;
 import org.won.domain.ProductsVO;
 import org.won.domain.QuestionVO;
+import org.won.domain.ShopimgVO;
 
 @Repository
 public class AdminDAOImpl implements AdminDAO {
@@ -83,6 +84,21 @@ public class AdminDAOImpl implements AdminDAO {
 	@Override
 	public void titleImgUpdate(AdminVO vo) throws Exception {
 		sqlSession.update(NAME + ".titleImgUpdate", vo);
+	}
+
+	@Override
+	public void defaultBanner(ShopimgVO vo) throws Exception {
+		sqlSession.insert(NAME + ".defaultBanner", vo);
+	}
+
+	@Override
+	public List<ShopimgVO> bannerList(String adminid) throws Exception {
+		return sqlSession.selectList(NAME + ".bannerList", adminid);
+	}
+
+	@Override
+	public void bannerUpdate(ShopimgVO vo) throws Exception {
+		sqlSession.update(NAME + ".bannerUpdate", vo);
 	}
 
 }

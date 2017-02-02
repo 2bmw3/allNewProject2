@@ -104,7 +104,7 @@ public class MemberController {
 		for (int i = 0; i < newItemSize; i++) {
 			viewList.add((i + hitItemSize), newItem.get(i));
 		}
-
+		model.addAttribute("banner", aservice.bannerList(adminid));
 		model.addAttribute("viewList", viewList);
 		model.addAttribute("hitItem", hitItem);
 		model.addAttribute("newItem", newItem);
@@ -188,6 +188,7 @@ public class MemberController {
 		vo.setAdminid(adminid);
 		vo.setLimitnum(8);
 
+		model.addAttribute("banner", aservice.bannerList(adminid));
 		model.addAttribute("shoplogo", aservice.shopTotal(adminid).get(0).getShoplogo());
 		model.addAttribute("hitItem", pservice.hitItem(vo));
 		model.addAttribute("newItem", pservice.newItem(vo));
@@ -285,6 +286,7 @@ public class MemberController {
 		vo.setAdminid(adminid);
 		vo.setLimitnum(6);
 
+		model.addAttribute("banner", aservice.bannerList(adminid));
 		model.addAttribute("shoplogo", aservice.shopTotal(adminid).get(0).getShoplogo());
 		model.addAttribute("hitItem", pservice.hitItem(vo));
 	}

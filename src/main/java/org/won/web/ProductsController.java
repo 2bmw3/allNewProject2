@@ -51,7 +51,6 @@ public class ProductsController {
 	// 상품 삭제
 	@PostMapping("/productsDelete")
 	public @ResponseBody void productsDelete(int pno) throws Exception {
-		System.out.println("cccccccpno=" + pno);
 		service.delete(pno);
 	}
 
