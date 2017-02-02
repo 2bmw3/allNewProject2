@@ -164,7 +164,7 @@ public class MemberController {
 		model.addAttribute("cart", oservice.cartList(vo));
 	}
 
-	@GetMapping("/thema1/checkout")
+	@PostMapping("/thema1/checkout")
 	public void thema1Checkout() {
 	}
 	

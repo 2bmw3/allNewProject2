@@ -4,6 +4,7 @@
 <html >
 <head>
 <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Calm breeze login screen</title>
 <link rel="stylesheet" href="/resources/member/css/loginStyle.css">
 <link href="http://t4t5.github.io/sweetalert/dist/sweetalert.css" rel="stylesheet">
@@ -11,17 +12,11 @@
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src="//code.jquery.com/jquery.min.js"></script>
 <style>
-#video { 
-     position: absolute;
-	 top: 0px;
-     left: 0px; 
-     max-width: 100%;
-     width: 100%;
-     height: auto;
-     z-index: -1;
-     overflow: hidden;
-}
 
+body {
+	background-color: gray;
+
+}
 </style>
 </head>
 <body>
@@ -36,9 +31,7 @@
         </form>
     </div>
 </div>
-<video id="video" preload="auto" autoplay="true" loop="loop" muted="muted" volume="0">
-      <source src="/resources/member/video/sm.mp4">
-</video>
+
 </body>
 <script>
 

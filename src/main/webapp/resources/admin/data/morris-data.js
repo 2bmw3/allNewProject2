@@ -70,14 +70,20 @@ $(function() {
     Morris.Donut({
         element: 'morris-donut-chart',
         data: [{
-            label: "Download Sales",
-            value: 12
+            label: "상의",
+            value: 3.2
         }, {
-            label: "In-Store Sales",
-            value: 30
+            label: "하의",
+            value: 3.5
         }, {
-            label: "Mail-Order Sales",
-            value: 20
+            label: "아우터",
+            value: 4.6
+        }, {
+            label: "신발 및 악세사리",
+            value: 3.9
+        }, {
+            label: "기타",
+            value: 4.4
         }],
         resize: true
     });
