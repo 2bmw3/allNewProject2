@@ -15,16 +15,12 @@
     <div id="top" class="callbacks_container">
         <ul class="rslides" id="slider4">
             <li>
-                <div class="banner-4"></div>
+                <div class="banner" 
+                style="background:url(https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shopimg%2Fthema2_banner1.jpg?alt=media&token=a9909f62-f8f6-4f16-9784-2df09fc7c887) no-repeat center;"></div>
             </li>
             <li>
-                <div class="banner-3"></div>
-            </li>
-            <li>
-                <div class="banner-2"></div>
-            </li>
-            <li>
-                <div class="banner-1"></div>
+                <div class="banner" 
+                style="background:url(https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shopimg%2Fthema2_banner2.jpg?alt=media&token=a9909f62-f8f6-4f16-9784-2df09fc7c887) no-repeat center;"></div>
             </li>
         </ul>
     </div>

@@ -120,8 +120,7 @@ a.simpleCart_empty {
 }
 /*--end-bottom-header--*/
 /*--banner-starts--*/
-.banner-1{
-	background:url(../images/banner.jpg) no-repeat center;
+.banner{
 	min-height:700px;
 	background-size:cover;
 	-webkit-background-size:cover;
@@ -129,33 +128,7 @@ a.simpleCart_empty {
 	-o-background-size:cover;
 	-ms-background-size:cover;
 }
-.banner-2{
-	background:url(../images/banner-2.jpg) no-repeat;
-	min-height:700px;
-	background-size:cover;
-	-webkit-background-size:cover;
-	-moz-background-size:cover;
-	-o-background-size:cover;
-	-ms-background-size:cover;
-}
-.banner-3{
-	background:url(../images/banner-3.jpg) no-repeat center;
-	min-height:700px;
-	background-size:cover;
-	-webkit-background-size:cover;
-	-moz-background-size:cover;
-	-o-background-size:cover;
-	-ms-background-size:cover;
-}
-.banner-4{
-	background:url(../images/banner-4.jpg) no-repeat center;
-	min-height:700px;
-	background-size:cover;
-	-webkit-background-size:cover;
-	-moz-background-size:cover;
-	-o-background-size:cover;
-	-ms-background-size:cover;
-}
+
 /*------------------ Slider Part starts Here----------*/
 .callbacks_container {
   position: relative;

@@ -9,64 +9,18 @@
     <div class="aa-slider-area">
         <div id="sequence" class="seq">
             <ul class="seq-canvas">
+<%-- 				<c:forEach items="${bannerImg}" var="vo" varStatus="status">  --%>
                 <!-- single slide item -->
-                <li>
-                    <div class="seq-model"> <!-- slider baner ::: 1920 x 700 -->
-                        <img style = 'width : 100%; height : 700px;' data-seq src="/resources/themes/thema1/img/slider/1.jpg" alt="Men slide img"/>
-                    </div>
-                    <div class="seq-title">
-<!--                         <span data-seq>Save Up to 75% Off</span> -->
-<!--                         <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a> -->
-                    </div>
-                </li>
-                <!-- single slide item -->
-                <li>
-                    <div class="seq-model">
-                        <img style = 'width : 100%; height : 700px;' data-seq src="/resources/themes/thema1/img/slider/2.jpg" alt="Wristwatch slide img"/>
-                    </div>
-                    <div class="seq-title">
-<!--                         <span data-seq>Save Up to 40% Off</span> -->
-<!--                         <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a> -->
-                    </div>
-                </li>
-                <!-- single slide item -->
-                <li>
-                    <div class="seq-model">
-                        <img style = 'width :100%; height : 700px;' data-seq src="/resources/themes/thema1/img/slider/3.jpg" alt="Women Jeans slide img"/>
-                    </div>
-                    <div class="seq-title">
-<!--                         <span data-seq>Save Up to 75% Off</span> -->
-<!--                         <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a> -->
-                    </div>
-                </li>
-                <!-- single slide item -->
-                <li>
-                    <div class="seq-model">
-                        <img style = 'width : 100%; height : 700px;' data-seq src="/resources/themes/thema1/img/slider/4.jpg" alt="Shoes slide img"/>
-                    </div>
-                    <div class="seq-title">
-<!--                         <span data-seq>Save Up to 75% Off</span> -->
-<!--                         <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a> -->
-                    </div>
-                </li>
-                <!-- single slide item -->
-                <li>
-                    <div class="seq-model">
-                        <img style = 'width : 100%; height : 700px;' data-seq src="/resources/themes/thema1/img/slider/5.jpg" alt="Male Female slide img"/>
-                    </div>
-                    <div class="seq-title">
-<!--                         <span data-seq>Save Up to 50% Off</span> -->
-<!--                         <a data-seq href="#" class="aa-shop-now-btn aa-secondary-btn">SHOP NOW</a> -->
-                    </div>
-                </li>
+	                <li>
+	                    <div class="seq-model"> 
+	                    <!-- slider banner ::: 1920 x 700 -->
+	                        <img style = 'width : 100%; height : 700px;' 
+	                        	data-seq src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shopimg%2Fthema1_banner1.jpg?alt=media&token=8c30ca10-01e5-42b7-b3dc-5b2269408bee"/>
+	                    </div>
+	                </li>
+                 <!-- single slide item end-->
+<%--                </c:forEach> --%>
             </ul>
-            <!-- slider navigation btn -->
-            <!--
-                    <fieldset class="seq-nav" aria-controls="sequence" aria-label="Slider buttons">
-                      <a type="button" class="seq-prev" aria-label="Previous"><span class="fa fa-angle-left"></span></a>
-                      <a type="button" class="seq-next" aria-label="Next"><span class="fa fa-angle-right"></span></a>
-                    </fieldset>
-            -->
         </div>
     </div>
 </section>
@@ -87,22 +41,21 @@
                         <div class="col-md-5 no-padding">
                             <div class="aa-promo-left">
                                 <div class="aa-promo-banner">
-                                    <img src="/resources/themes/thema1/img/promo-banner-1.jpg" alt="img">
+                                    <img 
+                                    src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shopimg%2Fthema1_subimg4.jpg?alt=media&token=60ecd854-2d9b-46a6-9eb6-1f37bfeac227" alt="img">
                                 </div>
                             </div>
                         </div>
-                        
-                        
                         
                         <!-- promo right -->
                         <!-- hit product banner size ::: 300 x 220 -->
                         <div class="col-md-7 no-padding">
                             <div class="aa-promo-right">
                             
-<%--                             <c:forEach items="${indexCategory}" var="vo" varStatus="status"> --%>
                                 <div class="aa-single-promo-right">
                                     <div class="aa-promo-banner"> 
-                                        <img src="/resources/themes/thema1/img/promo-banner-1.jpg" alt="img">
+                                        <img 
+                                        src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shopimg%2Fthema1_subimg1.jpg?alt=media&token=60ecd854-2d9b-46a6-9eb6-1f37bfeac227" alt="img">
                                         <div class="aa-prom-content">
                                             <h4 style='text-align: center;'><a href="categoryList?shopname=${param.shopname}&pkind=상의&pageNum=1">Top</a></h4>
                                         </div>
@@ -110,7 +63,8 @@
                                 </div>
                                 <div class="aa-single-promo-right">
                                     <div class="aa-promo-banner"> 
-                                        <img src="/resources/themes/thema1/img/promo-banner-2.jpg" alt="img">
+                                        <img 
+                                        src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shopimg%2Fthema1_subimg2.jpg?alt=media&token=60ecd854-2d9b-46a6-9eb6-1f37bfeac227" alt="img">
                                         <div class="aa-prom-content">
                                             <h4 style='text-align: center;'><a href="categoryList?shopname=${param.shopname}&pkind=하의&pageNum=1">bottom</a></h4>
                                         </div>
@@ -118,7 +72,8 @@
                                 </div>
                                 <div class="aa-single-promo-right">
                                     <div class="aa-promo-banner"> 
-                                        <img src="/resources/themes/thema1/img/promo-banner-3.jpg" alt="img">
+                                        <img 
+                                        src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shopimg%2Fthema1_subimg3.jpg?alt=media&token=60ecd854-2d9b-46a6-9eb6-1f37bfeac227" alt="img">
                                         <div class="aa-prom-content">
                                             <h4 style='text-align: center;'><a href="categoryList?shopname=${param.shopname}&pkind=신발%20및%20악세사리&pageNum=1">Acc</a></h4>
                                         </div>
@@ -126,13 +81,13 @@
                                 </div>
                                 <div class="aa-single-promo-right">
                                     <div class="aa-promo-banner"> 
-                                        <img src="/resources/themes/thema1/img/promo-banner-4.jpg" alt="img">
+                                        <img 
+                                        src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shopimg%2Fthema1_subimg5.jpg?alt=media&token=60ecd854-2d9b-46a6-9eb6-1f37bfeac227" alt="img">
                                         <div class="aa-prom-content">
                                             <h4 style='text-align: center;'><a href="categoryList?shopname=${param.shopname}&pkind=아우터&pageNum=1">Outer</a></h4>
                                         </div>
                                     </div>
                                 </div>
-<%--                              </c:forEach> --%>
                             </div>
                         </div>
                          <!-- promo right -->

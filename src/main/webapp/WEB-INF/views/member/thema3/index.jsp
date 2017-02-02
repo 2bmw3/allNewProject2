@@ -11,8 +11,9 @@
 			<div class="col-md-8">
 				<div class="flexslider animate-box">
 					<ul class="slides">
+					
 						<li
-							style="background-image: url(/resources/themes/thema3/images/img_bg_1.jpg);">
+							style="background-image: url(https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shopimg%2Fthema3_banner1.jpg?alt=media&token=9a668f32-acb2-45c4-8ed3-ee372dce9fcd);">
 							<div class="overlay-gradient"></div>
 							<div class="container-fluid">
 								<div class="row">
@@ -29,8 +30,9 @@
 								</div>
 							</div>
 						</li>
+						
 						<li
-							style="background-image: url(/resources/themes/thema3/images/img_bg_2.jpg);">
+							style="background-image: url(https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shopimg%2Fthema3_banner2.jpg?alt=media&token=9a668f32-acb2-45c4-8ed3-ee372dce9fcd);">
 							<div class="overlay-gradient"></div>
 							<div class="container-fluid">
 								<div class="row">
@@ -47,44 +49,31 @@
 								</div>
 							</div>
 						</li>
-						<li
-							style="background-image: url(/resources/themes/thema3/images/img_bg_3.jpg);">
-							<div class="overlay-gradient"></div>
-							<div class="container-fluid">
-								<div class="row">
-									<div class="col-md-10 col-md-offset-1 slider-text">
-										<div class="slider-text-inner">
-											<h1>Best Item</h1>
-											<h2>Fashion is not frivolous. It is a part of being
-												alive today</h2>
-											<p class="ct">
-												<a href="#">Buy Now <i class="icon-arrow-right"></i></a>
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</li>
+						
+						
 					</ul>
 				</div>
 			</div>
+			
 			<div class="col-md-4">
 				<a href="#" class="featured text-center animate-box"
-					style="background-image: url(/resources/themes/thema3/images/img_bg_4.jpg);">
+					style="background-image: url(https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shopimg%2Fthema3_sub1.jpg?alt=media&token=0e23179a-739a-4272-8564-a272f02beff7);">
 					<div class="desc">
 						<span class="date">Dec 25, 2016</span>
 						<h3>Every Start has an End</h3>
 						<span class="category">Inspirational</span>
 					</div>
-				</a> <a href="#" class="featured text-center animate-box"
-					style="background-image: url(/resources/themes/thema3/images/img_bg_5.jpg);">
+				</a>
+				<a href="#" class="featured text-center animate-box"
+					style="background-image: url(https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shopimg%2Fthema3_sub2.jpg?alt=media&token=0e23179a-739a-4272-8564-a272f02beff7);">
 					<div class="desc">
 						<span class="date">Dec 25, 2016</span>
-						<h3>Most Beautiful Website in 2016</h3>
+						<h3>Every Start has an End</h3>
 						<span class="category">Inspirational</span>
 					</div>
 				</a>
 			</div>
+			
 		</div>
 	</div>
 </aside>
