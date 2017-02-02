@@ -4,7 +4,7 @@
 <html >
 <head>
 <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Calm breeze login screen</title>
 <link rel="stylesheet" href="/resources/member/css/loginStyle.css">
 <link href="http://t4t5.github.io/sweetalert/dist/sweetalert.css" rel="stylesheet">
@@ -12,22 +12,22 @@
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src="//code.jquery.com/jquery.min.js"></script>
 <style>
-
-body {
-	background-color: gray;
-
+html {
+	background: linear-gradient(rgba(196, 102, 0, 0.6), rgba(155, 89, 182, 0.6));
+	height: 100%;
 }
 </style>
 </head>
 <body>
 <div class="wrapper">
     <div class="container">
-        <h2>Welcome</h2>
+        <h1>Welcome!</h1>
 
         <form class="form">
-            <input id='userid' type="text" placeholder="Username">
+            <input id='userid' type="text" placeholder="UserID">
             <input id='userpw' type="password" placeholder="Password">
-            <button id="login-button">Login</button>
+            <button id="login-button" style="margin: 5px;">Login</button><br>
+            <button id="register-button">Register</button>
         </form>
     </div>
 </div>
@@ -38,26 +38,28 @@ body {
 var url = document.location.href.split("?"); 
 var URL = url[1].split("url=")[1]+ "?" + url[2];
 
-$("#login-button").on("click",function(){
+$("#login-button").on("click",function(event){
 	event.preventDefault();
 	
-	//ahffk
 	var userid = $("#userid").val();
 	var userpw = $("#userpw").val();
+	if( userid == "" || userpw == ""){
+		swal("로그인 정보를 입력해주세요!","","error");
+	} else {
 	 formData = {"userid":userid, "userpw":userpw};
-    $.ajax({      
-    	url: "/member/loginAction", 
-        data: formData, 
-        type:"post",
-        dataType: "text",
-       	success: function(data){   
-       			str = URL;
-        		if(data=="success"){
-        			if(url[2]==undefined){
-        				str = "/member/index";
-        			}
-        			location.href = str;		
-        		}else{
+	   $.ajax({      
+	   	url: "/member/loginAction", 
+	       data: formData, 
+	       type:"post",
+	       dataType: "text",
+	      	success: function(data){   
+	      			str = URL;
+	       		if(data=="success"){
+	       			if(url[2]==undefined){
+	       				str = "/member/index";
+	       			}
+	       			location.href = str;		
+	       		}else{
 	     	     	swal({
 	  	     			title: "정보가 일치 하지 않습니다.",
 	  	     	 		text: "다시 시도해주세요",
@@ -65,9 +67,15 @@ $("#login-button").on("click",function(){
 	  	     			timer: 1000,
 	  	     			showConfirmButton: false
 	  	     		});
-        		}
-        }
-    }); 
+	       		}
+	       }
+	   });
+	}
+});
+
+$("#register-button").on("click",function(event){
+	event.preventDefault();
+	location.href='register'; 
 });
 </script>
 </html>

@@ -17,8 +17,8 @@
 			
 				<div id="Title" class="tab-pane fade in active">
 					<h3>Title image</h3>
-					<button type="button" id='modify' class="btn btn-default" data-toggle="modal" data-target="#titleModal">Modify</button>
-					<button type="button" id='confirm' class="btn btn-primary">Confirm</button>
+					<button type="button" id='modify' class="btn btn-default" data-toggle="modal" data-target="#titleModal">수정</button>
+					<button type="button" id='confirm' class="btn btn-primary">확인</button>
 					<br>
 					<img id='titleImg' src="${titleimg}" style="width: 400px; height: 400px;">
 				</div>
@@ -50,8 +50,9 @@
 			
 			
 				<div id="Banner" class="tab-pane fade">
-					<h3>Banner image (Click!)</h3>
-					<h4><b>Standard Image Size :</b> ${banner[0].bannersize}</h4>
+					<h3>Banner image</h3>
+					<p>이미지를 수정하려면 클릭해주세요</p>
+					<h4><b>권장 이미지 사이즈 :</b> ${banner[0].bannersize}</h4>
 					<c:forEach items="${banner}" var="vo">
 						<img class='bannerImg' src="${vo.bannerstr}" style="width: 150px; height: 150px; float: left; margin: 5px; cursor: pointer;"
 							data-toggle="modal" data-target="#bannerModal">

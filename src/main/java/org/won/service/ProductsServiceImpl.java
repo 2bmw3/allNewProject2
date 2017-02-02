@@ -63,17 +63,6 @@ public class ProductsServiceImpl implements ProductsService {
 	@Override
 	@Transactional
 	public void delete(int pno) throws Exception {
-		List<PphotosVO> pvo = dao.pphotosRead(pno);
-
-		for (int i = 0; i < pvo.size(); i++) {
-
-			String pphotoFileName = pvo.get(0).getPphotostr();
-			logger.info("target fileName... : " + pphotoFileName);
-			new File("C:\\productsPhoto\\" + pphotoFileName).delete();
-			new File("C:\\productsPhoto\\ts_" + pphotoFileName).delete();
-			new File("C:\\productsPhoto\\s_" + pphotoFileName).delete();
-		}
-
 		dao.productsDelete(pno);
 		dao.pinfoDelete(pno);
 		dao.pphotosDelete(pno);
@@ -146,10 +135,6 @@ public class ProductsServiceImpl implements ProductsService {
 			}
 		}
 
-		for (int i = 0; i < deleteTarget.size(); i++) {
-
-			new File("C:\\productsPhoto\\" + deleteTarget.get(i)).delete();
-		}
 		edao.ephotoDelete();
 
 	}
