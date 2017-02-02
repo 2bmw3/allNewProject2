@@ -53,4 +53,9 @@ public class MemberDAOImpl implements MemberDAO {
 	public MemberVO login(MemberVO vo) throws Exception {
 		return sqlSession.selectOne(NAME + ".login", vo);
 	}
+
+	@Override
+	public List<MemberVO> memberInfo(String userid) throws Exception {
+		return sqlSession.selectList(NAME + ".memberInfo", userid);
+	}
 }

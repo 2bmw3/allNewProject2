@@ -157,15 +157,19 @@ public class MemberController {
 	public void thema1Cart(String shopname, Model model,HttpServletRequest request) throws Exception {
 		CartVO vo = new CartVO();
 		vo.setShopname(shopname);
-		vo.setUserid(cookieUtil.cookieUtil(request,"userid"));
-		
+		String userid = cookieUtil.cookieUtil(request,"userid");
 		String adminid = aservice.getAdminId(shopname);
+		vo.setShopname(shopname);
+		vo.setUserid(userid);
+		
+		model.addAttribute("memberInfo", mservice.memberInfo(userid));
 		model.addAttribute("shoplogo", aservice.shopTotal(adminid).get(0).getShoplogo());
 		model.addAttribute("cart", oservice.cartList(vo));
 	}
 
 	@PostMapping("/thema1/checkout")
 	public void thema1Checkout() {
+		
 	}
 	
 	@GetMapping("/thema1/order")
@@ -258,7 +262,6 @@ public class MemberController {
 		
 		vo.setShopname(shopname);
 		vo.setUserid(cookieUtil.cookieUtil(request,"userid"));
-		
 		model.addAttribute("shoplogo", aservice.shopTotal(adminid).get(0).getShoplogo());
 		model.addAttribute("cart", oservice.cartList(vo));
 
