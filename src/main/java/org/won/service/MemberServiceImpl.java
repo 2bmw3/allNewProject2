@@ -48,4 +48,9 @@ public class MemberServiceImpl implements MemberService {
 		return dao.login(vo);
 	}
 
+	@Override
+	public List<MemberVO> memberInfo(String userid) throws Exception {
+		return dao.memberInfo(userid);
+	}
+
 }

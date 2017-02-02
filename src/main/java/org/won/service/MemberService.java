@@ -21,6 +21,8 @@ public interface MemberService {
 
 	// 답변 여러개 가져오기
 	public List<String> answerList(int qno) throws Exception;
-	
+
 	public MemberVO login(MemberVO vo) throws Exception;
+
+	public List<MemberVO> memberInfo(String userid) throws Exception;
 }
