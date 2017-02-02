@@ -43,15 +43,16 @@ function jusoCallBack(roadAddrPart1,addrDetail,roadAddrPart2, zipNo){
 		<i id="idCheck" class="fa fa-check-square-o"></i>
 		<input type="password" id="adminpw" name="adminpw" placeholder="Password" /> 
 		<input type="password" id="adminpwCheck" placeholder="Confirm password" /> 
+		<input type="text" name="aname" placeholder="Name" /> 
+		<input type="text" name="aemail" placeholder="E-mail" /> 
+		<input type="text" name="aphonenumber" placeholder="Phone number" /> 
 		<input type="button" id="firstNextBtn" name="next" class="action-button" value="Next" />
 	</fieldset>
 
 	<fieldset>
 		<h2 class="fs-title">Detail information</h2>
 		<h3 class="fs-subtitle">Please insert you're detail information</h3>
-		<input type="text" name="aname" placeholder="Name" /> 
-		<input type="text" name="aemail" placeholder="E-mail" /> 
-		<input type="text" name="aphonenumber" placeholder="Phone number" /> 
+		
 		<input type="text" name="shopname" placeholder="Shop name" /> 
 		<input type="hidden" name="aaddress" id="aaddress"/>
 		<div name="form" id="addForm">

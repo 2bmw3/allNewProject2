@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>register page</title>
 <link href="http://t4t5.github.io/sweetalert/dist/sweetalert.css" rel="stylesheet" />
 <link rel="stylesheet" href="/resources/admin/css/register.css">
@@ -41,6 +42,8 @@ function jusoCallBack(roadAddrPart1,addrDetail,roadAddrPart2, zipNo){
 		<input type="password" id="userpw" name="userpw" placeholder="Password" /> 
 		<input type="text" name="uname" placeholder="Name" /> 
 		<input type="text" name="uphonenumber" placeholder="Phonenumber" /> 
+		<input type="email" name="uemail" placeholder="Email" /> 
+	
 		<input type="button" name="next" class="next action-button" value="Next" />
 	</fieldset>
 	<fieldset>
@@ -55,8 +58,7 @@ function jusoCallBack(roadAddrPart1,addrDetail,roadAddrPart2, zipNo){
 				<input type="text" id="addrDetail" style="width: 50%; float:left;" value="" placeholder="상세주소1">
 				<input type="text" id="roadAddrPart2" style="width: 50%;" value="" placeholder="상세주소2">
 		</div>
-		<input type="email" name="uemail" placeholder="Email" /> 
-		<input type="date" name="ubirth" placeholder="Birth" /> 
+			<input type="date" name="ubirth" placeholder="Birth" /> 
 		<select name="ugender">
 		  <option >----------</option>
 		  <option value="Male">Male</option>
