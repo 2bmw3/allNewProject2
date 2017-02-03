@@ -217,15 +217,15 @@
 	</select>
 
 	<select id="hitItem" parameterType="AdminVO" resultType="ProductsVO">
-		select *
-		from (select * from tbl_products where adminid=#{adminid} limit 0,
-		#{limitnum}) t order by sellcnt desc
+		select * from (select * from tbl_products where adminid=#{adminid}
+		order by sellcnt desc) t limit 0 , #{limitnum}
 	</select>
 
 	<select id="newItem" parameterType="AdminVO" resultType="ProductsVO">
-		select *
-		from (select * from tbl_products where adminid=#{adminid} limit 0,
-		#{limitnum}) t order by pregdate desc
+		select *	
+		from (select * from tbl_products where 
+		adminid=#{adminid} order by pregdate desc) t 
+		limit 0, #{limitnum}
 	</select>
 
 	<select id="mGenderList" resultType="ProductsVO" parameterType="String">
