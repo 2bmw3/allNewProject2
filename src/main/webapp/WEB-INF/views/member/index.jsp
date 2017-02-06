@@ -8,41 +8,33 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Shopping Mall</title>
-<meta name="description"
-	content="Demo of the tutorial on how to re-create a similar effect of the takeitapp.co website." />
-<meta name="keywords"
-	content="responsive, grid, polaroid, animation, intro, web design, tutorial, responsive images, srcset" />
+<meta name="description" content="Demo of the tutorial on how to re-create a similar effect of the takeitapp.co website." />
+<meta name="keywords" content="responsive, grid, polaroid, animation, intro, web design, tutorial, responsive images, srcset" />
 <meta name="author" content="Codrops" />
-<link href='https://fonts.googleapis.com/css?family=Caveat:400,700'
-	rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css"
-	href="/resources/member/css/normalize.css" />
-<link rel="stylesheet" type="text/css"
-	href="/resources/member/css/square-loader.min.css" />
-<link rel="stylesheet" type="text/css"
-	href="/resources/member/css/demo.css" />
-<link rel="stylesheet" type="text/css"
-	href="/resources/member/css/component.css" />
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link rel="stylesheet" type="text/css"
-	href="/resources/member/css/index.css">
+<link href='https://fonts.googleapis.com/css?family=Caveat:400,700'	rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="/resources/member/css/normalize.css" />
+<link rel="stylesheet" type="text/css" href="/resources/member/css/square-loader.min.css" />
+<link rel="stylesheet" type="text/css" href="/resources/member/css/demo.css" />
+<link rel="stylesheet" type="text/css" href="/resources/member/css/component.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="/resources/member/css/index.css">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-
-<link href="http://t4t5.github.io/sweetalert/dist/sweetalert.css"
-	rel="stylesheet">
+<link href="http://t4t5.github.io/sweetalert/dist/sweetalert.css" rel="stylesheet">
 <script src="http://t4t5.github.io/sweetalert/dist/sweetalert.min.js"></script>
 <!-- 구글 비젼에 데이터 요청 -->
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 <script>
 	document.documentElement.className = 'js';
 </script>
 </head>
 <body>
 	<div class="view">
-		<header class="header"> <nav class="demos"> <a
-			class="demos__item demos__item--current" href="member/index"></a> </nav> </header>
+		<header class="header"> 
+			<nav class="demos"> 
+				<a class="demos__item demos__item--current" href="member/index"></a> 
+			</nav> 
+		</header>
+		
+		<!-- Modal Start -->
 		<div id="myModal" class="modal" style="margin-top: -8%;">
 			<!-- Modal content -->
 			<div class="modal-content" style="width: 40%; height: 75%;">
@@ -54,7 +46,7 @@
 				<div class="modal-body">
 					<video id="video" width="100%" height="100%" autoplay></video>
 					<canvas id="canvas"></canvas>
-					<br />
+					<br/>
 					<div id="ViewTimer"></div>
 				</div>
 				<div class="modal-footer">
@@ -62,64 +54,69 @@
 				</div>
 			</div>
 		</div>
+		<!-- Modal End -->
+		
 		<section class="page page--mover">
-		<div class="la-square-loader">
-			<div></div>
-		</div>
+			<div class="la-square-loader">
+				<div></div>
+			</div>
 		</section>
+		
 		<div class="title-wrap">
-			<h4 class="title title--main">
-				Elegance
-			</h4>
-			<p class="title title--sub">Make by WON-PIECE!	</p>
+			<h4 class="title title--main">Elegance</h4>
+			<p class="title title--sub">Make by WON-PIECE!</p>
 		</div>
 
 		<figure class="pic10 camera" style="margin-left:3.5%;margin-right:3.5%">
-		<div class="row">
-			<div class="col-md-1" style="float: left;">
-				<a href='#' id="myBtn" class='btn-example'> <i
-					class="fa fa-camera-retro" style="font-size: 150px;"></i>
-				</a>
-				<figcaption>Search Camera</figcaption>
+			<div class="row">
+				<div class="col-md-1" style="float: left;">
+					<a href='#' id="myBtn" class='btn-example'> <i
+						class="fa fa-camera-retro" style="font-size: 150px;"></i>
+					</a>
+					<figcaption>Search Camera</figcaption>
+				</div>
+				<div class="col-md-1" style="float: right;">
+					<a href='/member/list'> <i class="fa fa-list"
+						style="font-size: 150px;"></i>
+					</a>
+					<figcaption>All List</figcaption>
+				</div>
 			</div>
-			<div class="col-md-1" style="float: right;">
-				<a href='/member/list'> <i class="fa fa-list"
-					style="font-size: 150px;"></i>
-				</a>
-				<figcaption>All List</figcaption>
-			</div>
-		</div>
 		</figure>
 
 		<section class="page page--static">
-		<div class="page__title">
-			<p class="page__title-sub">In order to be irreplaceacle, one must
-				always be different.</p>
-		</div>
-		<ul class="grid">
-			<c:forEach items="${indexList}" var="vo" varStatus="status">
-				<li class="grid__item" style="width: 200px; height: 200px;"><figure
-						class="pic${status.count}"> <a
-						href="thema${vo.thema}/index?shopname=${vo.shopname}"> <img
-						style="width: 200px; height: 200px" src="${vo.titleimg}" />
-					</a> <figcaption>${vo.shopname}</figcaption> </figure></li>
-			</c:forEach>
-		</ul>
+			<div class="page__title">
+				<p class="page__title-sub">In order to be irreplaceacle, one must always be different.</p>
+			</div>
+			
+			<ul class="grid">
+				<c:forEach items="${indexList}" var="vo" varStatus="status">
+					<li class="grid__item" style="width: 200px; height: 200px;">
+						<figure	class="pic${status.count}"> 
+							<a href="thema${vo.thema}/index?shopname=${vo.shopname}"> 
+								<img style="width: 200px; height: 200px" src="${vo.titleimg}" />
+								${status.count}
+							</a> 
+							<figcaption>${vo.shopname}</figcaption> 
+						</figure>
+					</li>
+				</c:forEach>
+			</ul>
 		</section>
+		
 		<div>
 			<div class="device">
 				<div class="device__screen"></div>
 			</div>
-			<button id="showgrid" class="button button--view"
-				aria-label="Show me more">
-				<svg width="100%" height="100%" viewBox="0 0 310 177"
-					preserveAspectRatio="xMidYMid meet"> <path fill="#FFFFFF"
-					d="M159.875,174.481L306.945,27.41c2.93-2.929,2.93-7.678,0-10.606L292.803,2.661c-1.406-1.407-3.314-2.197-5.303-2.197c-1.989,0-3.896,0.79-5.303,2.197L154.572,130.287L26.946,2.661c-1.406-1.407-3.314-2.197-5.303-2.197c-1.989,0-3.897,0.79-5.303,2.197L2.197,16.804C0.733,18.269,0,20.188,0,22.107s0.732,3.839,2.197,5.303l147.071,147.071C152.197,177.411,156.945,177.411,159.875,174.481L159.875,174.481z" />
+			
+			<button id="showgrid" class="button button--view" aria-label="Show me more">
+				<svg width="100%" height="100%" viewBox="0 0 310 177" preserveAspectRatio="xMidYMid meet"> 
+				<path fill="#FFFFFF" d="M159.875,174.481L306.945,27.41c2.93-2.929,2.93-7.678,0-10.606L292.803,2.661c-1.406-1.407-3.314-2.197-5.303-2.197c-1.989,0-3.896,0.79-5.303,2.197L154.572,130.287L26.946,2.661c-1.406-1.407-3.314-2.197-5.303-2.197c-1.989,0-3.897,0.79-5.303,2.197L2.197,16.804C0.733,18.269,0,20.188,0,22.107s0.732,3.839,2.197,5.303l147.071,147.071C152.197,177.411,156.945,177.411,159.875,174.481L159.875,174.481z" />
 				</svg>
 			</button>
-			<!-- Related demos -->
 		</div>
-		<!-- /view -->
+	</div>
+	
 </body>
 <script src="/resources/member/js/classie.js"></script>
 <script src="/resources/member/js/dynamics.min.js"></script>
