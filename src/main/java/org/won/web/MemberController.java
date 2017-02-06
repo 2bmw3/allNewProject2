@@ -55,13 +55,14 @@ public class MemberController {
 
 	/* 멤버 전체 리스트 */
 	@GetMapping("/list")
-	public void list(Model model) throws Exception {
-
-		model.addAttribute("list", pservice.mTotalList());
+	public @ResponseBody List<ProductsVO> list(Model model) throws Exception {
+//		model.addAttribute("list", pservice.mTotalList());
+		return pservice.mTotalList();
 	}
 
 	@GetMapping("/genderList")
-	public void maleList(Model model, String pgender) throws Exception {
+	public void maleList(Model model, String pgender)
+			throws Exception {
 
 		model.addAttribute("list", pservice.mGenderList(pgender));
 	}
