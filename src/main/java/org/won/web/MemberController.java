@@ -52,6 +52,14 @@ public class MemberController {
 	public void index(Model model) throws Exception {
 		model.addAttribute("indexList", mservice.indexList());
 	}
+	@RequestMapping("/aaa")
+	@ResponseBody
+	public List aaa(HttpServletRequest request) throws Exception{
+		System.out.println("들어 오셨습니다");
+		List<AdminVO> list = mservice.indexList();
+		
+		return list;
+	}
 
 	/* 멤버 전체 리스트 */
 	@GetMapping("/list")
