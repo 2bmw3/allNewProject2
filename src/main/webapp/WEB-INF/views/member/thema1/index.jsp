@@ -93,7 +93,7 @@
                          <!-- promo right -->
                         
                     </div>
-                </div>\
+                </div>
                 
             </div>
         </div>
