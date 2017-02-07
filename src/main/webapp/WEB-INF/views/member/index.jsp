@@ -76,7 +76,7 @@
 					<figcaption>Search Camera</figcaption>
 				</div>
 				<div class="col-md-1" style="float: right;">
-					<a href='/member/list'> <i class="fa fa-list"
+					<a href='http://localhost:4200'> <i class="fa fa-list"
 						style="font-size: 150px;"></i>
 					</a>
 					<figcaption>All List</figcaption>
