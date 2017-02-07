@@ -276,15 +276,20 @@ public class MemberController {
 	// cart
 	@GetMapping("/thema2/cart")
 	public void thema2Cart(String shopname, Model model,HttpServletRequest request) throws Exception {
-
 		CartVO vo = new CartVO();
-		String adminid = aservice.getAdminId(shopname);
-		
 		vo.setShopname(shopname);
-		vo.setUserid(cookieUtil.cookieUtil(request,"userid"));
+		String userid = cookieUtil.cookieUtil(request,"userid");
+		String adminid = aservice.getAdminId(shopname);
+		vo.setShopname(shopname);
+		vo.setUserid(userid);
+		
+		model.addAttribute("memberInfo", mservice.memberInfo(userid));
 		model.addAttribute("shoplogo", aservice.shopTotal(adminid).get(0).getShoplogo());
 		model.addAttribute("cart", oservice.cartList(vo));
-
+	}
+	@PostMapping("/thema2/checkout")
+	public void thema2Checkout() {
+		
 	}
 
 	@GetMapping("/thema2/order")

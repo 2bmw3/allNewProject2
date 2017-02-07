@@ -68,8 +68,6 @@ public class OrderServiceImpl implements OrderService {
 
 			dao.memberOrderWriteDetail(vo.getList().get(i));
 			if (vo.getList().get(i).getCno() != 0) {
-				
-				System.out.println(vo.getList().get(i).getCno());
 				dao.cartDelete(vo.getList().get(i).getCno());
 			}
 
