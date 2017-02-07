@@ -46,4 +46,8 @@
 	<select id="login" resultType="MemberVO" parameterType="MemberVO">
 		select * from bit88.tbl_member where userid = #{userid} and userpw = #{userpw}
 	</select>
+	
+	<select id="shopThema" resultType="String">
+		select thema from tbl_admin where shopname = #{shopname};
+	</select>
 </mapper>

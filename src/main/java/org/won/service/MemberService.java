@@ -25,4 +25,6 @@ public interface MemberService {
 	public MemberVO login(MemberVO vo) throws Exception;
 
 	public List<MemberVO> memberInfo(String userid) throws Exception;
+	
+	public String shopThema(String shopname) throws Exception;
 }

@@ -53,16 +53,25 @@ public class MemberController {
 	public void index(Model model) throws Exception {
 		model.addAttribute("indexList", mservice.indexList());
 	}
-	//현중이
-	@RequestMapping("/aaa")
+	
+	//안드로이드 데이터 요청
+	@RequestMapping("/getdata")
 	@ResponseBody
-	public List aaa(HttpServletRequest request) throws Exception{
+	public List getdata(HttpServletRequest request) throws Exception{
 		System.out.println("들어 오셨습니다");
 		List<AdminVO> list = mservice.indexList();
 		
 		return list;
 	}
+	
+	@GetMapping("/shopname")
+	public String shopname(String shopname) throws Exception{
+		String themaNum = mservice.shopThema(shopname);
+		String shop = URLEncoder.encode(shopname, "UTF-8");
+		return "redirect:thema"+ themaNum +"/index?shopname="+shop;
+	}
 
+	
 	/* 멤버 전체 리스트 */
 	@GetMapping("/list")
 	@CrossOrigin(origins="*")

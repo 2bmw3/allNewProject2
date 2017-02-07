@@ -53,4 +53,9 @@ public class MemberServiceImpl implements MemberService {
 		return dao.memberInfo(userid);
 	}
 
+	@Override
+	public String shopThema(String shopname) throws Exception {
+		return dao.shopThema(shopname);
+	}
+
 }
