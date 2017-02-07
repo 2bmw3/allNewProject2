@@ -62,7 +62,7 @@ public class MemberController {
 		
 		return list;
 	}
-	//안드로이드shop클릭시 이동
+	//안드로이드shop클릭시 이동.
 	@GetMapping("/shopname")
 	public String shopname(String shopname) throws Exception{
 		String themaNum = mservice.shopThema(shopname);
