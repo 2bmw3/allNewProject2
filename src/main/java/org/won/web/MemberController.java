@@ -76,21 +76,20 @@ public class MemberController {
 	@GetMapping("/list")
 	@CrossOrigin(origins="*")
 	public @ResponseBody List<ProductsVO> list(Model model) throws Exception {
-//		model.addAttribute("list", pservice.mTotalList());
 		return pservice.mTotalList();
 	}
 
 	@GetMapping("/genderList")
-	public void maleList(Model model, String pgender)
-			throws Exception {
-
-		model.addAttribute("list", pservice.mGenderList(pgender));
+	@CrossOrigin(origins="*")
+	public	@ResponseBody List<ProductsVO> maleList(Model model, String pgender) throws Exception {
+		return pservice.mGenderList(pgender);
 	}
 
 
 	@GetMapping("/categoryList")
-	public void topList(Model model, String pkind) throws Exception {
-		model.addAttribute("list", pservice.mPkindList(pkind));
+	@CrossOrigin(origins="*")
+	public @ResponseBody List<ProductsVO> topList(Model model, String pkind) throws Exception {
+		return pservice.mPkindList(pkind);
 	}
 	
 	//안드로이드 전용
