@@ -58,7 +58,6 @@ public class MemberController {
 	@RequestMapping("/getdata")
 	@ResponseBody
 	public List getdata(HttpServletRequest request) throws Exception{
-		System.out.println("들어 오셨습니다");
 		List<AdminVO> list = mservice.indexList();
 		
 		return list;

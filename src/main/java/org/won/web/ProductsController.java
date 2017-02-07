@@ -88,7 +88,6 @@ public class ProductsController {
 			String pkind = URLEncoder.encode(vo.getPkind(), "UTF-8");
 			str = vo.getJspName() + "?page=" + pageNum + "&pkind=" + pkind;
 		}
-		System.out.println("pull name = " + str);
 		return "redirect:" + "/admin" + str;
 	}
 
