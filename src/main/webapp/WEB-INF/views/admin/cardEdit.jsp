@@ -78,23 +78,22 @@
 										<img style='width: 135px; height: 135px;'
 											src='https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shoplogo%2F${shoplogo}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e' />
 										<!-- 												src='https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shoplogo%2Fc480f8e9-728a-dc66-249d-dde279ba807e_logo.gif?alt=media&token=303a7418-ab40-40df-947c-15f4d1a25591'> -->
-										<div class="editText">
-											<p>Tel . ${phonenumber}</p>
-											<p>Address . ${shopaddress}</p>
+										<div class="editText"><br>
+											<p><b>Tel .</b> ${phonenumber}</p>
+											<p><b>Address .</b><br>${shopaddress}</p>
 										</div>
 									</div>
 
-									<div class='titleImg' style="margin-left: 5%;">
+									<div class='titleImg' style="margin-left: 4%;">
 										<div class="guide">
-											<p style="font-size: 8px; margin-top: -10%;">※카드를 가이드라인에 맞춰주세요!!</p>
 										</div>
 										<img style='width: 100px; height: 120px;'
 											src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e">
 										<div class="productInfo">
-											<p style="font-size: 12px;">${vo.pname}</p>
-											<p style="font-size: 12px;">￦ ${vo.price}</p>
-											<p style="font-size: 12px;">${colorCnt[status.count - 1]}color/
-												${sizeCnt[status.count - 1]} size</p>
+											<p style="font-size: 12px;"><b>${vo.pname}</b></p>
+											<p style="font-size: 12px;"><b>￦</b>${vo.price}</p>
+											<p style="font-size: 12px;"><b>${colorCnt[status.count - 1]} </b>color/
+												<b>${sizeCnt[status.count - 1]}</b> size</p>
 											<p style="font-size: 16px;">#${vo.pno}&nbsp;&nbsp;${shopname}</p>
 										</div>
 									</div>
