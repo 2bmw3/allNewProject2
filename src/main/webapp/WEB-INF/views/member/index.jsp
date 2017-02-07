@@ -76,7 +76,7 @@
 					<figcaption>Search Camera</figcaption>
 				</div>
 				<div class="col-md-1" style="float: right;">
-					<a href='/member/list'> <i class="fa fa-list"
+					<a href='http://localhost:4200'> <i class="fa fa-list"
 						style="font-size: 150px;"></i>
 					</a>
 					<figcaption>All List</figcaption>
@@ -94,7 +94,8 @@
 					<li class="grid__item" style="width: 200px; height: 200px;">
 						<figure	class="pic${status.count}"> 
 							<a href="thema${vo.thema}/index?shopname=${vo.shopname}"> 
-								<img style="width: 200px; height: 200px" src="${vo.titleimg}" />
+								<img style="width: 200px; height: 200px" 
+								src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/titleimg%2F${vo.titleimg}?alt=media&token=0fed3241-3d4b-496d-9cf9-75ef18af1beb" />
 								${status.count}
 							</a> 
 							<figcaption>${vo.shopname}</figcaption> 

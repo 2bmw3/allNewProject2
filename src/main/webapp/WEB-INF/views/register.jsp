@@ -218,10 +218,8 @@ function jusoCallBack(roadAddrPart1,addrDetail,roadAddrPart2, zipNo){
 			$("#bannersize").val(thema3BannerSize);
 		}
 		
-		console.log($("#banner"));
-		var titleImgURL = "https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/titleimg%2Findex"
-							+ themaNumber + ".png?alt=media&token=0fed3241-3d4b-496d-9cf9-75ef18af1beb";
-		$("#titleimg").val(titleImgURL);
+		var titleImgName = "index"+ themaNumber +".png";
+		$("#titleimg").val(titleImgName);
 		for(var i = 0 ; i < images.length; i ++ ){
 			images[i].className = "thmeaImg";			
 		}

@@ -20,7 +20,9 @@
 					<button type="button" id='modify' class="btn btn-default" data-toggle="modal" data-target="#titleModal">수정</button>
 					<button type="button" id='confirm' class="btn btn-primary">확인</button>
 					<br>
-					<img id='titleImg' src="${titleimg}" style="width: 400px; height: 400px;">
+					<img id='titleImg' 
+					src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/titleimg%2F${titleimg}?alt=media&token=0fed3241-3d4b-496d-9cf9-75ef18af1beb" 
+					style="width: 400px; height: 400px;">
 				</div>
 				
 			<!-- Modal -->
@@ -133,7 +135,7 @@
             var downloadURL = uploadTask.snapshot.downloadURL;
             $(titleImg)[0].src = downloadURL;
             selectImg[0].value = "";
-			var data = {"titleimg":downloadURL, "adminid": adminid};
+			var data = {"titleimg":uuidFileName, "adminid": adminid};
 			
 			$.ajax({
 				url : "titleImgUpdate",
