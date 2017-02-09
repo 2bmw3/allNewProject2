@@ -200,13 +200,14 @@
                 }]
             }]
         };
-
         $.post({
             url:'https://vision.googleapis.com/v1/images:annotate?key=AIzaSyDZVLNTpGmVooQatMslQnPYKyNAMKhOuOo',
             data: JSON.stringify(request),
             contentType: 'application/json',
         }).fail(function (jqXHR, textStatus, errorThrown){
+        	console.log(textStatus);
         }).done(displayJSON);
+       
     }
 
     /**

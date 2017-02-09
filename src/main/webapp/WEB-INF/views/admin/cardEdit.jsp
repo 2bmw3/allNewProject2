@@ -29,7 +29,7 @@
 .cardBackground .editText {
 	margin-top: 8%;
 	position: absolute;
-	width: 130px;
+	width: 135px;
 	font-size: 12px;
 }
 
@@ -79,22 +79,22 @@
 											src='https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shoplogo%2F${shoplogo}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e' />
 										<!-- 												src='https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shoplogo%2Fc480f8e9-728a-dc66-249d-dde279ba807e_logo.gif?alt=media&token=303a7418-ab40-40df-947c-15f4d1a25591'> -->
 										<div class="editText"><br>
-											<p><b>Tel .</b> ${phonenumber}</p>
-											<p><b>Address .</b><br>${shopaddress}</p>
+											<p><i class='fa fa-phone'></i><b> Tel .</b><br>${phonenumber}</p>
+											<p><i class='fa fa-home'></i><b> Address .</b><br>${shopaddress}</p>
 										</div>
 									</div>
 
 									<div class='titleImg' style="margin-left: 4%;">
 										<div class="guide">
 										</div>
-										<img style='width: 100px; height: 120px;'
+										<img style='width: 100px; height: 150px; margin-bottom: 10px;'
 											src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e">
 										<div class="productInfo">
 											<p style="font-size: 12px;"><b>${vo.pname}</b></p>
-											<p style="font-size: 12px;"><b>￦</b>${vo.price}</p>
+											<p style="font-size: 12px;"><b>KRW</b> ${vo.price}</p>
 											<p style="font-size: 12px;"><b>${colorCnt[status.count - 1]} </b>color/
 												<b>${sizeCnt[status.count - 1]}</b> size</p>
-											<p style="font-size: 16px;">#${vo.pno}&nbsp;&nbsp;${shopname}</p>
+											<p style="font-size: 14px; width: 140px;"><b>#${vo.pno}</b>&nbsp;&nbsp;${shopname}</p>
 										</div>
 									</div>
 								</div>
