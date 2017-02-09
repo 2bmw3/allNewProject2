@@ -21,10 +21,9 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <link href="http://t4t5.github.io/sweetalert/dist/sweetalert.css" rel="stylesheet">
 <script src="http://t4t5.github.io/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 <!-- 구글 비젼에 데이터 요청 -->
-<script>
-	document.documentElement.className = 'js';
-</script>
+
 </head>
 <body>
 	<div class="view">
@@ -205,7 +204,11 @@
             data: JSON.stringify(request),
             contentType: 'application/json',
         }).fail(function (jqXHR, textStatus, errorThrown){
+<<<<<<< HEAD
         	console.log(textStatus);
+=======
+        	console.log("===========209");
+>>>>>>> branch 'master' of https://github.com/2bmw3/allNewProject2.git
         }).done(displayJSON);
        
     }
