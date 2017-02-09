@@ -204,11 +204,6 @@
             data: JSON.stringify(request),
             contentType: 'application/json',
         }).fail(function (jqXHR, textStatus, errorThrown){
-<<<<<<< HEAD
-        	console.log(textStatus);
-=======
-        	console.log("===========209");
->>>>>>> branch 'master' of https://github.com/2bmw3/allNewProject2.git
         }).done(displayJSON);
        
     }
