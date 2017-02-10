@@ -114,7 +114,7 @@ public class ProductsController {
 			adminVO = service.themaGet(pno);
 			shoplogo = "https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shoplogo%2F"
 					+ adminVO.getShoplogo() + "?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e";
-			str = "/member/thema" + adminVO.getThema() + "/view?pno=" + pno;
+			str = "/member/thema" + adminVO.getThema() + "/view?pno=" + pno +"&shopname=" + adminVO.getShopname();
 			adminVO.setShoplogo(shoplogo);
 			adminVO.setThema(str);
 		} catch (Exception e) {
