@@ -131,7 +131,7 @@ ul.uli {
 			<!-- Tab panes -->
 			<div class="tab-content">
 				<div role="tabpanel" class="tab-pane active" id="description">
-					<div class="col-md-12 col-md-offset-2 ">${view[0].pcontent}</div>
+					<div class="col-md-12">${view[0].pcontent}</div>
 				</div>
 				
 			<div role="tabpanel" class="tab-pane" id="qna">

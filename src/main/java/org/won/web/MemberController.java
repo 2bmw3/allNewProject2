@@ -385,13 +385,14 @@ public class MemberController {
 
 	@GetMapping("/thema3/cart")
 	public void thema3Cart(String shopname, Model model, HttpServletRequest request) throws Exception {
-
 		CartVO vo = new CartVO();
 		vo.setShopname(shopname);
-		vo.setUserid(cookieUtil.cookieUtil(request,"userid"));
-		
+		String userid = cookieUtil.cookieUtil(request,"userid");
 		String adminid = aservice.getAdminId(shopname);
-
+		vo.setShopname(shopname);
+		vo.setUserid(userid);
+		
+		model.addAttribute("memberInfo", mservice.memberInfo(userid));
 		model.addAttribute("shoplogo", aservice.shopTotal(adminid).get(0).getShoplogo());
 		model.addAttribute("cart", oservice.cartList(vo));
 	}
