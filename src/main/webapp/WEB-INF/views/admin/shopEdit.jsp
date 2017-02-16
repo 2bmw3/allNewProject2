@@ -6,7 +6,7 @@
 <div id="page-wrapper">
 	<div class="row">
 		<div class="col-lg-12">
-			<h1 class="page-header">Shop Image Editing</h1>
+			<h1 class="page-header">SHOP IMAGE EDIT</h1>
 
 			<ul class="nav nav-pills">
 				<li class="active"><a data-toggle="pill" href="#Title">Title edit</a></li>
@@ -143,7 +143,7 @@
 				dataType : 'text',
 				type : "post",
 				success : function(result) {
-					swal(result,"","success");
+					swal("성공적으로 변경!","","success");
 				}
 			});
             
@@ -184,7 +184,7 @@
 				dataType : 'text',
 				type : "post",
 				success : function(result) {
-					swal(result,"","success");
+					swal("성공적으로 변경!","","success");
 				}
 			});
             

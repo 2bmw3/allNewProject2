@@ -108,8 +108,8 @@
 										</div>
 										<div id="collapse${qvo.qno}" class="panel-collapse collapse">
 							        <div class="panel-body">
-							        	<input type="text" id='questionPwcheck' maxlength="4" 
-							        	placeholder='비밀번호를 입력해주세요' style="width: 70%;">
+							        	<input type="password" id='questionPwcheck' maxlength="4" 
+							        	placeholder='비밀번호를 입력해주세요!' style="width: 70%;">
 							        	<input id='questionPwcheckBtn' type="submit" class="btn btn-primary" value="확인" name="${qvo.qno}">
 							        	<input type="hidden" value="${qvo.qcontent}">
 							        	

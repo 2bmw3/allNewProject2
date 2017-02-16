@@ -6,7 +6,7 @@
 	<div id="page-wrapper">
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">THEMA SEARCH</h1>
+				<h1 class="page-header">CATEGORY LIST</h1>
 
 				<!--LATEST ARRIVALS -->
 				<div class="features_items" style="margin-top: -6.9%;">
