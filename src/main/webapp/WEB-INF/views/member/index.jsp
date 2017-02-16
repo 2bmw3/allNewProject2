@@ -39,7 +39,8 @@
 			<div class="modal-content" style="width: 40%; height: 75%;">
 				<div class="modal-header">
 					<span class="close" id="webCamClose">&times;</span>
-					<h2>Please put the card on the camera.</h2>
+					<h2>Please put the card 
+					on the camera.</h2>
 				</div>
 
 				<div class="modal-body">
@@ -49,7 +50,7 @@
 					<div id="ViewTimer"></div>
 				</div>
 				<div class="modal-footer">
-					<h3>won - piece</h3>
+					<h3>Team Ctrl + Z</h3>
 				</div>
 			</div>
 		</div>
@@ -63,7 +64,7 @@
 		
 		<div class="title-wrap">
 			<h4 class="title title--main">Elegance</h4>
-			<p class="title title--sub">Make by WON-PIECE!</p>
+			<p class="title title--sub">Make by Team Ctrl + Z</p>
 		</div>
 
 		<figure class="pic10 camera" style="margin-left:3.5%;margin-right:3.5%">
@@ -95,7 +96,6 @@
 							<a href="thema${vo.thema}/index?shopname=${vo.shopname}"> 
 								<img style="width: 200px; height: 200px" 
 								src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/titleimg%2F${vo.titleimg}?alt=media&token=0fed3241-3d4b-496d-9cf9-75ef18af1beb" />
-								${status.count}
 							</a> 
 							<figcaption>${vo.shopname}</figcaption> 
 						</figure>

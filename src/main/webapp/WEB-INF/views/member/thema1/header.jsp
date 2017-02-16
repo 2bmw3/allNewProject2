@@ -74,7 +74,7 @@
                   <div class="aa-header-top-area">
                      <div class="aa-header-top-right">
                         <ul class="aa-head-top-nav-right hHeader">
-                           <li><a href="faq?shopname=${param.shopname}">F.A.Q</a></li>
+                           <li><a href="#">F.A.Q</a></li>
                            <li><a href="#" id='hCart'>My Cart</a></li>
                            <li><a href="#" id="hOrder">Order</a></li>
                            <li><a href="/member/register">Join Us</a></li>
